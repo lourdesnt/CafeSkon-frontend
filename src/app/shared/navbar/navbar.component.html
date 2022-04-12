@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg fixed-top bg-danger" (scroll)="onWindowScroll();">
+    <div class="container">
+        <a routerLink="/home"><img src="/assets/img/logo-title.png"></a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar-success" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-bar"></span>
+            <span class="navbar-toggler-bar"></span>
+            <span class="navbar-toggler-bar"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-success">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/home">
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/products">
+                        Products
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/in-our-cafe">
+                        In our cafe
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/about-us">
+                        About us
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

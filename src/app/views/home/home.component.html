@@ -1,0 +1,93 @@
+<app-navbar></app-navbar>
+<div class="page-header" data-parallax="true" style="background-image: url('./assets/img/intro.png');">
+    <div class="filter"></div>
+    <div class="container">
+        <div class="motto text-left">
+            <h2>Welcome to <b>Cafe Skön</b></h2>
+            <br>
+            <h3>
+                Enjoy our cute and unique sweets and drinks! <i class="nc-icon nc-satisfied"></i>
+            </h3>
+            <br><br>
+            <button type="button" class="btn btn-danger" (click)="scrollToElement(target)">Learn More</button>
+        </div>
+    </div>
+</div>
+<div class="main" #target>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6" id="carousel">
+                <ngb-carousel [showNavigationArrows]="showNavigationArrows"
+                    [showNavigationIndicators]="showNavigationIndicators">
+                    <ng-template ngbSlide>
+                        <div class="picsum-img-wrapper">
+                            <img src="/assets/img/c1.jpg" alt="Food Slide 1" class="mh-100"
+                                style="width: 100%; height: 100%;">
+                        </div>
+                    </ng-template>
+                    <ng-template ngbSlide>
+                        <div class="picsum-img-wrapper">
+                            <img src="/assets/img/c2.jpg" alt="Food Slide 2" class="mh-100"
+                                style="width: 100%; height: 100%;">
+                        </div>
+                    </ng-template>
+                    <ng-template ngbSlide>
+                        <div class="picsum-img-wrapper">
+                            <img src="/assets/img/c3.jpg" alt="Food Slide 3" class="mh-100"
+                                style="width: 100%; height: 100%;">
+                        </div>
+                    </ng-template>
+                    <ng-template ngbSlide>
+                        <div class="picsum-img-wrapper">
+                            <img src="/assets/img/c4.jpg" alt="Food Slide 4" class="mh-100"
+                                style="width: 100%; height: 100%;">
+                        </div>
+                    </ng-template>
+                </ngb-carousel>
+                <br>
+            </div>
+            <div class="col-md-6 justify-content-center" id="home-text-1">
+                <img src="/assets/img/subtitle1.png" alt="Hungry for happiness?" id="subtitle1">
+                <h4>In <b>Cafe Skön</b> our customers' happiness is our #1 priority</h4>
+                <p>
+                    For that reason, we made our products with special care, so we can provide you
+                    the sweetest tastes.
+                </p>
+                <p>Made with 100% natural ingredients.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6" id="home-text-2">
+                <img src="/assets/img/subtitle2.png" alt="Home delivery" id="subtitle2">
+                <h4>Now you can enjoy our products anywhere!</h4>
+                <p>
+                    Good news! We've just implemented a home delivery service. Add your favourite
+                    products to your cart and we'll bring them to your place.
+                </p>
+                <p>Personalized, fast, same quality.</p>
+            </div>
+            <div class="col-md-6">
+                <img src="/assets/img/takeaway.png" alt="Take Away" id="takeaway">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12" id="title3">
+                <img src="/assets/img/subtitle3.png" alt="Know us better" id="subtitle3">
+            </div>
+            <div class="col-md-6">
+                <img src="/assets/img/cafe1.png" alt="Cafe" id="cafe1">
+            </div>
+            <div class="col-md-6">
+                <img src="/assets/img/cafe2.png" alt="Cafe" id="cafe2">
+            </div>
+            <div class="col-md-12 text-center" id="home-text-3">
+                <h4><b>Cafe Skön</b> is closer than ever</h4>
+                <p>
+                    Learn more about us and what is happening, keeping up with new events and news.
+                </p>
+                <p>Our space is part of the fun!</p>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

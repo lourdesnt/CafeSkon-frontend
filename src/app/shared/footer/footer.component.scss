@@ -1,0 +1,23 @@
+footer {
+    background-color: #f47463;
+    color: white;
+    width: 100%;
+}
+.footer nav > ul a:not(.btn) {
+    color: #E3E3E3;
+    display: block;
+    margin-bottom: 3px;
+}
+
+.footer nav > ul a:not(.btn):hover, .footer nav > ul a:not(.btn):focus {
+    color: #777777;
+}
+
+.footer .copyright {
+    color: #E3E3E3;
+    padding: 10px 15px;
+    font-size: 14px;
+    margin: 15px 3px;
+    line-height: 20px;
+    text-align: center;
+}

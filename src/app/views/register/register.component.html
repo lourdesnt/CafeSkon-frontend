@@ -1,0 +1,65 @@
+<app-common-navbar></app-common-navbar>
+<div class="wrapper">
+    <div class="page-header" style="background-image: url('./assets/img/background.jpg');">
+        <div class="filter"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
+                    <div class="card card-register">
+                        <img src="assets/img/logo-title.png">
+                        <h3 class="title">Sign up</h3>
+                        <form class="register-form" (ngSubmit)="submit()" #userForm="ngForm">
+                            <label>Username</label>
+                            <div id="inputUser" class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="nc-icon nc-single-02"></i>
+                                    </span>
+                                </div>
+                                <input type="text" name="username" class="form-control" placeholder="Username" (focus)="focus=true" (blur)="focus=false"
+                                    [(ngModel)]="user.username"
+                                    #username="ngModel" required maxlength="20">
+                            </div>
+                            <div *ngIf="username.invalid && username.dirty" class="alert">
+                                <div *ngIf="username.errors?.required">Required field</div>
+                            </div>
+                            <label>Email</label>
+                            <div id="inputEmail" class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="nc-icon nc-email-85"></i>
+                                    </span>
+                                </div>
+                                <input type="text" name="email" class="form-control" placeholder="Email" (focus)="focus1=true" (blur)="focus1=false"
+                                    [(ngModel)]="user.email"
+                                    #email="ngModel" required maxlength="50">
+                            </div>
+                            <div *ngIf="email.invalid && email.dirty" class="alert">
+                                <div *ngIf="email.errors?.required">Required field</div>
+                            </div>
+                            <label>Passwoord</label>
+                            <div id="inputPass" class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus2===true}">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="nc-icon nc-key-25"></i>
+                                    </span>
+                                </div>
+                                <input type="password" name="password" class="form-control" placeholder="Password" (focus)="focus2=true" (blur)="focus2=false"
+                                [(ngModel)]="user.password" #password="ngModel" required minlength="6">
+                            </div>
+                            <div *ngIf="password.invalid && password.dirty" class="alert">
+                                <div *ngIf="password.errors?.required">Required field</div>
+                                <div *ngIf="password.errors?.minlength">6 characters min</div>
+                            </div>
+                            <div *ngIf="registerFail" class="form-control-feedback">Error signing up</div>
+                            <button type="submit" class="btn btn-danger btn-block btn-round" [disabled] ="!userForm.form.valid">Sign up</button>
+                        </form>
+                        <div class="forgot">
+                            <a href="/login" routerLink="/login" class="btn btn-link btn-danger">Already have an account? Sign in now!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

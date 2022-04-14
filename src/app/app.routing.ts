@@ -12,17 +12,17 @@ import { HomeComponent } from './views/home/home.component';
 import { ProductsComponent } from './views/products/products.component';
 import { InOurCafeComponent } from './views/in-our-cafe/in-our-cafe.component';
 import { AboutUsComponent } from './views/about-us/about-us.component';
+import { LoginComponent } from './views/login/login.component';
+import { RegisterComponent } from './views/register/register.component';
 
 const routes: Routes =[
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home',             component: HomeComponent },
-    { path: 'user-profile',     component: ProfileComponent },
-    { path: 'signup',           component: SignupComponent },
-    { path: 'landing',          component: LandingComponent },
-    { path: 'nucleoicons',      component: NucleoiconsComponent },
     { path: 'products',         component: ProductsComponent },
     { path: 'in-our-cafe',      component: InOurCafeComponent },
-    { path: 'about-us',         component: AboutUsComponent }
+    { path: 'about-us',         component: AboutUsComponent },
+    { path: 'login',            component: LoginComponent },
+    { path: 'register',         component: RegisterComponent }
 ];
 
 @NgModule({

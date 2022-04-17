@@ -21,6 +21,7 @@ import { CommonNavbarComponent } from './shared/common-navbar/common-navbar.comp
 import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailComponent } from './views/products/product-detail/product-detail.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { UserService } from './services/user.service';
 
 
 @NgModule({
@@ -56,7 +57,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     HttpClientModule,
     NgxPaginationModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from 'app/services/product.service';
 
 @Component({
@@ -11,9 +12,11 @@ export class ProductsComponent implements OnInit {
   products = [];
   name : string;
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private router: Router, private _route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.getAllProducts();
+    console.log(this.products[0].image);
   }
 
   search(event: any){
@@ -35,4 +38,21 @@ export class ProductsComponent implements OnInit {
       });
     }
 
+    getAllProducts(): void {
+      //console.log(this.actualUsername);
+      this.productService.getAllProducts().subscribe(
+        (data) => {
+          if(data==null){
+            this.products=[];
+          } else {
+            this.products = data;
+          }
+          console.log(data);
+        },
+        (error: Error) => {
+          console.error("Error getting products");
+        })
+    }
+
 }
+

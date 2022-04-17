@@ -20,6 +20,7 @@ import { RegisterComponent } from './views/register/register.component';
 import { CommonNavbarComponent } from './shared/common-navbar/common-navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailComponent } from './views/products/product-detail/product-detail.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { ProductDetailComponent } from './views/products/product-detail/product-
     ComponentsModule,
     ExamplesModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,33 @@
-<p>products works!</p>
+<app-common-navbar></app-common-navbar>
+<div class="page-header page-header-xs" data-parallax="true" id="especies" style="background-image: url('./assets/img/products_header.png');">
+    <div class="container">
+        
+    </div>
+</div>
+<div class="container">
+    <div class="row justify-content-center">
+        <h2>Our products</h2>
+    </div>
+    <div class="row justify-content-center">
+        <h4>Enjoy our desserts anywhere!</h4>
+    </div>
+    <div class="form-group p-3">
+        <input type="search" class="form-control" (keyup)="search($event)" placeholder="Search a product">
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-3 p-3">
+            <button type="submit" class="btn btn-outline-danger btn-block" id="flowers" (click)="searchCategory($event, 1)" style="display: inline-block;">CAKES</button>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-3 p-3">
+            <button type="submit" class="btn btn-outline-danger btn-block" id="cars" (click)="searchCategory($event, 2)" style="display: inline-block;">COOKIES</button>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-3 p-3">
+            <button type="submit" class="btn btn-outline-danger btn-block" id="sky" (click)="searchCategory($event, 3)" style="display: inline-block;">DRINKS</button>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-3 p-3">
+            <button type="submit" class="btn btn-outline-danger btn-block" id="sky" (click)="searchCategory($event, 4)" style="display: inline-block;">COFFEES</button>
+        </div>
+    </div>
+
+</div>
+<!--app-footer></-app-footer-->

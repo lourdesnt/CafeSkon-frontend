@@ -19,6 +19,7 @@ import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import { CommonNavbarComponent } from './shared/common-navbar/common-navbar.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductDetailComponent } from './views/products/product-detail/product-detail.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
     AboutUsComponent,
     LoginComponent,
     RegisterComponent,
-    CommonNavbarComponent
+    CommonNavbarComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,

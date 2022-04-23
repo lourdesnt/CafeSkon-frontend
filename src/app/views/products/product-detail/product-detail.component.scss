@@ -1,0 +1,61 @@
+.container {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+img {
+    width: 80%;
+}
+
+button:active {
+    background-color: white!important;
+}
+
+.l-button {
+    vertical-align: middle;
+    margin: 0px 0px 0px 4px;
+    cursor: pointer;
+}
+
+h2{
+    margin:0px;
+}
+
+#details {
+    background-color: #ffe8d6;
+    border-radius: 10%;
+    border: 1px solid #f77660;
+}
+
+#description {
+    padding: 16px;
+    margin-top: 30px;
+}
+
+#price {
+    padding: 16px;
+}
+
+p {
+    font-size: 20px;
+}
+
+#quantity{
+    padding: 16px;
+}
+
+label {
+    margin-right: 10px;
+}
+
+input {
+    width: 10px;
+}
+
+#buttonAdd{
+    margin-top:20px;
+}
+
+.nc-icon {
+    vertical-align: middle;
+}

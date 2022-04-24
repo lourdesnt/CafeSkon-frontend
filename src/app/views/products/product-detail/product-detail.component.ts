@@ -22,6 +22,7 @@ export class ProductDetailComponent implements OnInit {
   public user: User;
   public id: any;
   public item: CartItem;
+  public cart: CartItem[] = [];
 
   constructor(private productService: ProductService,
               private userService: UserService,
@@ -53,10 +54,13 @@ export class ProductDetailComponent implements OnInit {
 
   public addToCart(){
     this.item = new CartItem();
-    this.item.customer = this.user;
+    //this.item.customer = this.user;
     this.item.product = this.productChosen;
     this.item.quantity = parseInt((<HTMLInputElement>document.getElementById("qInput")).value);
     this.item.quantity = this.productChosen.price * this.item.quantity;
+    this.cart = JSON.parse(localStorage.getItem('cart'));
+    this.cart.push(this.item);
+    localStorage.setItem('cart', JSON.stringify(this.cart));
   }
 
 }

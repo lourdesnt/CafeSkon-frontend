@@ -22,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailComponent } from './views/products/product-detail/product-detail.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { UserService } from './services/user.service';
+import { CartComponent } from './shared/cart/cart.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { UserService } from './services/user.service';
     LoginComponent,
     RegisterComponent,
     CommonNavbarComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

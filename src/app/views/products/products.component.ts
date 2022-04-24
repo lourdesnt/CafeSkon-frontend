@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CartItem } from 'app/models/cart-item';
 import { ProductService } from 'app/services/product.service';
 
 @Component({
@@ -11,8 +12,11 @@ export class ProductsComponent implements OnInit {
 
   products = [];
   name : string;
+  currentCart: CartItem[];
 
-  constructor(private productService: ProductService, private router: Router, private _route: ActivatedRoute) { }
+  constructor(private productService: ProductService, private router: Router, private _route: ActivatedRoute) {
+    localStorage.setItem('cart', JSON.stringify(this.currentCart));
+   }
 
   ngOnInit(): void {
     this.getAllProducts();

@@ -11,7 +11,5 @@ export class CommonNavbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
   
-
 }

@@ -1,0 +1,55 @@
+.container {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+button:active {
+    background-color: white!important;
+}
+
+.l-button {
+    vertical-align: middle;
+    margin: 0px 0px 0px 4px;
+    cursor: pointer;
+}
+
+.nc-icon {
+    vertical-align: middle;
+}
+
+h2{
+    margin:0px;
+}
+
+h4{
+    margin:0px;
+    padding: 5px 0px;
+}
+
+img {
+    width: 100px;
+    vertical-align: middle;
+}
+
+.items-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+th, td {
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #e8e9eb;
+    padding: 10px 14px;
+    width: 100%;
+}
+
+.center{
+    height: 100px;
+    line-height: 100px;
+}
+
+#total {
+    margin-top: 20px;
+}

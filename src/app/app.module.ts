@@ -22,7 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailComponent } from './views/products/product-detail/product-detail.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { UserService } from './services/user.service';
-import { CartComponent } from './shared/cart/cart.component';
+import { CartComponent } from './views/cart/cart.component';
 
 
 @NgModule({
@@ -48,6 +48,7 @@ import { CartComponent } from './shared/cart/cart.component';
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home',             component: HomeComponent },
       { path: 'products',         component: ProductsComponent },
+      { path: 'cart',             component: CartComponent },
       { path: 'in-our-cafe',      component: InOurCafeComponent },
       { path: 'about-us',         component: AboutUsComponent },
       { path: 'login',            component: LoginComponent },

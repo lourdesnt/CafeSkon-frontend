@@ -4,7 +4,7 @@ import { User } from 'app/models/user';
 import { Observable } from 'rxjs';
 
 
-const API_URL = 'http://localhost:8080/users/';
+const API_URL = 'http://localhost:8090/users/';
 
 @Injectable()
 export class UserService {

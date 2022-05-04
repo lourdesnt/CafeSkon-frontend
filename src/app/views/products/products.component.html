@@ -16,21 +16,21 @@
     </div>
     <div class="row">
         <div class="col-sm-12 col-md-6 col-lg-3 p-3">
-            <button type="submit" class="btn btn-outline-danger btn-block" (click)="searchCategory($event, 1)" style="display: inline-block;">CAKES</button>
+            <button type="submit" class="btn btn-outline-danger btn-block" (click)="searchCategory($event, 'CAKE')" style="display: inline-block;">CAKES</button>
         </div>
         <div class="col-sm-12 col-md-6 col-lg-3 p-3">
-            <button type="submit" class="btn btn-outline-danger btn-block" (click)="searchCategory($event, 2)" style="display: inline-block;">COOKIES</button>
+            <button type="submit" class="btn btn-outline-danger btn-block" (click)="searchCategory($event, 'COOKIE')" style="display: inline-block;">COOKIES</button>
         </div>
         <div class="col-sm-12 col-md-6 col-lg-3 p-3">
-            <button type="submit" class="btn btn-outline-danger btn-block" (click)="searchCategory($event, 3)" style="display: inline-block;">DRINKS</button>
+            <button type="submit" class="btn btn-outline-danger btn-block" (click)="searchCategory($event, 'DRINK')" style="display: inline-block;">DRINKS</button>
         </div>
         <div class="col-sm-12 col-md-6 col-lg-3 p-3">
-            <button type="submit" class="btn btn-outline-danger btn-block" (click)="searchCategory($event, 4)" style="display: inline-block;">COFFEES</button>
+            <button type="submit" class="btn btn-outline-danger btn-block" (click)="searchCategory($event, 'COFFEE')" style="display: inline-block;">COFFEES</button>
         </div>
     </div>
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12 p-3">
-            <button type="submit" class="btn btn-outline-info btn-block" (click)="getAllProducts()" style="display: inline-block;">SEE ALL PRODUCTS</button>
+            <button type="submit" class="btn btn-outline-warning btn-block" (click)="getAllProducts()" style="display: inline-block;">SEE ALL PRODUCTS</button>
         </div>
     </div>
     <div class="row">
@@ -45,7 +45,7 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title text-center">{{product.name}}</h5>
-                        <p class="card-text text-center">{{product.price}} $</p>
+                        <p class="card-text text-center">{{product.price | number:'1.2-2'}} $</p>
                     </div>
                 </div>
             </a>

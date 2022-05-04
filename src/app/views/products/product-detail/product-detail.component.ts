@@ -1,26 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Cart } from 'app/models/cart';
 import { CartItem } from 'app/models/cart-item';
 import { Product } from 'app/models/product';
 import { User } from 'app/models/user';
 import { ProductService } from 'app/services/product.service';
 import { UserService } from 'app/services/user.service';
 
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+
 @Component({
   selector: 'ngbd-modal-content',
   template: `
     <div class="modal-header">
       <h4 class="modal-title">Yay!</h4>
-      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
       <p>Your product has been add to your cart</p>
     </div>
     <div class="modal-footer">
-    <a routerLink="/products"><button type="button" class="btn btn-default">Other products</button></a>
-    <a routerLink="/cart"><button type="button" class="btn btn-warning">See my cart</button></a>
+    <a routerLink="/products" href="/products"><button type="button" class="btn btn-default">Other products</button></a>
+    <a routerLink="/cart" href="/cart"><button type="button" class="btn btn-warning">See my cart</button></a>
     </div>
   `
 })
@@ -38,18 +38,19 @@ export class ProductDetailComponent implements OnInit {
 
   public productChosen: Product;
   public username: string;
-  public myCart: Cart;
   public user: User;
   public id: any;
   public item: CartItem;
-  //public cart: CartItem[];
   public quantity: number = 1;
   public cart : CartItem[];
+
+  myForm = new FormGroup({}) // Instantiating our form
 
   constructor(private productService: ProductService,
               private userService: UserService,
               private _route: ActivatedRoute,
               private router: Router,
+              private formBuilder: FormBuilder,
               private modalService: NgbModal) {
                 this.productChosen = new Product();
                 this.id = this._route.snapshot.paramMap.get('id');
@@ -74,12 +75,15 @@ export class ProductDetailComponent implements OnInit {
 
   public addToCart(){
     this.item = new CartItem();
-    //this.item.customer = this.user;
     this.item.product = this.productChosen;
     this.item.quantity = this.quantity;
-    this.item.price = this.productChosen.price * this.item.quantity;
     console.log(this.item);
-    this.cart.push(this.item);
+    var matchingItem = this.cart.find(i => i.product.id == this.item.product.id);
+    if(matchingItem){
+      matchingItem.quantity += this.item.quantity;
+    } else {
+      this.cart.push(this.item);
+    }
     localStorage.setItem('cart', JSON.stringify(this.cart));
     const modalRef = this.modalService.open(NgbdModalContent);
   }

@@ -20,8 +20,8 @@ export class ProductService {
     return this.http.get(API_URL + `product/${id}`);
   }
 
-  public getProductsByCategory(categoryId: any): Observable<any>{
-    return this.http.get(API_URL + `category/${categoryId}`);
+  public getProductsByCategory(category: any): Observable<any>{
+    return this.http.get(API_URL + `category/${category}`);
   }
 
   public getProductsByName(name: string): Observable<any>{

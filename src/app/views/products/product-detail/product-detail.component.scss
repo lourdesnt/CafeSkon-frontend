@@ -22,9 +22,10 @@ h2{
 }
 
 #details {
-    background-color: #ffe8d6;
-    border-radius: 10%;
+    border-radius: 1%;
     border: 1px solid #f77660;
+    -webkit-box-shadow: 5px 5px 9px 1px rgba(255,204,182,0.85); 
+    box-shadow: 5px 5px 9px 1px rgba(255,204,182,0.85);
 }
 
 #description {
@@ -40,7 +41,7 @@ p {
     font-size: 20px;
 }
 
-#quantity{
+#quantityForm{
     padding: 16px;
 }
 

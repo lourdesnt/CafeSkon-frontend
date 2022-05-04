@@ -17,8 +17,8 @@ export class CartComponent implements OnInit {
               private _route: ActivatedRoute,
               private router: Router) {
                 this.items = JSON.parse(localStorage.getItem('cart'));
-                if(this.items != null){
-                  this.total = this.items.map(item => item.product.price*item.quantity).reduce((a,b)=> a+b);
+                if(this.items != null && this.items.length>0){
+                  this.total = this.items.map(item => item.product.price*item.quantity).reduce((a,b)=> a+b, 0);
                   console.log(this.items);
                 }
                }
@@ -31,5 +31,12 @@ export class CartComponent implements OnInit {
     return item.product.price*item.quantity;
   }
 
+  deleteItem(item: CartItem){
+    var matchingItem = this.items.find(i => i.product.id == item.product.id);
+    this.items.forEach((product,index)=>{
+      if(product==item) this.items.splice(index,1);
+   });
+   localStorage.setItem('cart', JSON.stringify(this.items));
+  }
 
 }

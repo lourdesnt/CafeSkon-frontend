@@ -12,7 +12,7 @@
         </div>
     </ng-template>
 
-    <div class="items-table" *ngIf="items != null else noitems">
+    <div class="items-table" *ngIf="items != null && items.length>0 else noitems">
         <tr>
             <th>Items</th>
             <th>Quantity</th>
@@ -31,6 +31,7 @@
             </td>
             <td>{{item.quantity}}</td>
             <td>{{getItemPrice(item) | number:'1.2-2'}}$</td>
+            <td id="delete"><i (click)="deleteItem(item)" class="nc-icon nc-simple-remove"></i></td>
         </tr>
         <div class="row d-flex justify-content-end p-3 center">
             <h3><b>Total:&nbsp;</b></h3>

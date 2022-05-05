@@ -8,6 +8,8 @@ import { ProductService } from 'app/services/product.service';
 import { UserService } from 'app/services/user.service';
 
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { ReviewService } from 'app/services/review.service';
+import { Review } from 'app/models/review';
 
 @Component({
   selector: 'ngbd-modal-content',
@@ -43,11 +45,13 @@ export class ProductDetailComponent implements OnInit {
   public item: CartItem;
   public quantity: number = 1;
   public cart : CartItem[];
+  public reviews: Review[];
 
   myForm = new FormGroup({}) // Instantiating our form
 
   constructor(private productService: ProductService,
               private userService: UserService,
+              private reviewService: ReviewService,
               private _route: ActivatedRoute,
               private router: Router,
               private formBuilder: FormBuilder,
@@ -60,13 +64,21 @@ export class ProductDetailComponent implements OnInit {
                   },
                   (error: Error) => {
                     console.error("Error getting the product");
-                  });
+                });
                 var items = localStorage.getItem('cart');
                 if(items){
                   this.cart = JSON.parse(items);
                 } else {
                   this.cart = [];
                 }
+                this.reviewService.getAllReviews(this.id).subscribe(
+                  (data) => {
+                    this.reviews = data;
+                    this.productChosen.reviews = this.reviews;
+                  },
+                  (error: Error) => {
+                    console.error("Error getting reviews");
+                });
               }
 
   ngOnInit(): void {

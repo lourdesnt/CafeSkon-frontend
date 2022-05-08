@@ -23,6 +23,9 @@ import { ProductDetailComponent } from './views/products/product-detail/product-
 import { NgxPaginationModule } from 'ngx-pagination';
 import { UserService } from './services/user.service';
 import { CartComponent } from './views/cart/cart.component';
+import { OrderComponent } from './views/order/order.component';
+import { ProfileComponent } from './views/profile/profile.component';
+import { AuthGuard } from './services/guards/auth.guard';
 
 
 @NgModule({
@@ -38,7 +41,9 @@ import { CartComponent } from './views/cart/cart.component';
     RegisterComponent,
     CommonNavbarComponent,
     ProductDetailComponent,
-    CartComponent
+    CartComponent,
+    OrderComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,22 +51,29 @@ import { CartComponent } from './views/cart/cart.component';
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: 'home',             component: HomeComponent },
-      { path: 'products',         component: ProductsComponent },
-      { path: 'cart',             component: CartComponent },
-      { path: 'in-our-cafe',      component: InOurCafeComponent },
-      { path: 'about-us',         component: AboutUsComponent },
-      { path: 'login',            component: LoginComponent },
-      { path: 'register',         component: RegisterComponent }
-  ]),
+      { path: "", redirectTo: "home", pathMatch: "full" },
+      { path: "home",                           component: HomeComponent },
+      { path: "products",                       component: ProductsComponent },
+      { path: "products/product/:id",           component: ProductDetailComponent },
+      { path: "cart",                           component: CartComponent },
+      { path: "order",
+        canLoad: [AuthGuard],
+        canActivate: [AuthGuard],               component: OrderComponent },
+      { path: "in-our-cafe",                    component: InOurCafeComponent },
+      { path: "about-us",                       component: AboutUsComponent },
+      { path: "login",                          component: LoginComponent },
+      { path: "register",                       component: RegisterComponent },
+      { path: "profile",
+        canLoad: [AuthGuard],
+        canActivate: [AuthGuard],               component: ProfileComponent }
+    ]),
     ComponentsModule,
     ExamplesModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
   ],
   providers: [UserService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

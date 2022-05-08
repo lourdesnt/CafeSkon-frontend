@@ -30,9 +30,8 @@ export class LoginComponent implements OnInit {
     console.log("User: "+ this.user.username);
     this.userService.login(this.user).subscribe(
       (data) => {
-        //console.log(data);
         localStorage.setItem('username', this.user.username);
-          this.router.navigate(['/gallery']);
+        this.router.navigate(['/home']);
       },
       (error: Error) => {
         this.loginFail = true;

@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit {
     this.userService.register(this.user).subscribe(
       (data) => {
         localStorage.setItem('username', this.user.username);
-        this.router.navigate(['/gallery']);
+        this.router.navigate(['/home']);
       },
       (error: Error) => {
         this.registerFail = true;

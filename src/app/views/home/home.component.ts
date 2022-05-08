@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from 'app/services/user.service';
+import { User } from 'app/models/user';
 
 
 @Component({
@@ -14,7 +16,11 @@ export class HomeComponent implements OnInit {
   showNavigationArrows = true;
   showNavigationIndicators = true;
 
-  constructor(config: NgbCarouselConfig, private router: Router, private _route: ActivatedRoute) {
+  get user() {
+    return this.userService.user;
+  }
+
+  constructor(config: NgbCarouselConfig, private router: Router, private _route: ActivatedRoute, private userService: UserService) {
     config.showNavigationArrows = true;
     config.showNavigationIndicators = true;
   }

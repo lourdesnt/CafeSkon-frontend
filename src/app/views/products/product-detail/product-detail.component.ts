@@ -7,7 +7,7 @@ import { User } from 'app/models/user';
 import { ProductService } from 'app/services/product.service';
 import { UserService } from 'app/services/user.service';
 
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormControl } from '@angular/forms';
 import { ReviewService } from 'app/services/review.service';
 import { Review } from 'app/models/review';
 
@@ -46,6 +46,7 @@ export class ProductDetailComponent implements OnInit {
   public quantity: number = 1;
   public cart : CartItem[];
   public reviews: Review[];
+  public newReview: Review;
 
   myForm = new FormGroup({}) // Instantiating our form
 
@@ -79,6 +80,9 @@ export class ProductDetailComponent implements OnInit {
                   (error: Error) => {
                     console.error("Error getting reviews");
                 });
+
+                this.newReview = new Review();
+                this.newReview.product = this.productChosen;
               }
 
   ngOnInit(): void {
@@ -98,6 +102,20 @@ export class ProductDetailComponent implements OnInit {
     }
     localStorage.setItem('cart', JSON.stringify(this.cart));
     const modalRef = this.modalService.open(NgbdModalContent);
+  }
+
+  reviewForm: FormGroup = this.formBuilder.group({
+    rating: [ , [ Validators.required ]   ],
+    comment: [ , ]
+  })
+
+  comment: FormControl = this.formBuilder.control('', );
+
+  saveReview(){
+    if(this.reviewForm.valid){
+      this.newReview.rating=this.reviewForm.value;
+      this.newReview.comment=this.comment.value;
+    }
   }
 
 }

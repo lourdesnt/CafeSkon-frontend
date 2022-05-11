@@ -22,10 +22,13 @@ h2{
 }
 
 #details {
-    border-radius: 1%;
-    border: 1px solid #f77660;
-    -webkit-box-shadow: 5px 5px 9px 1px rgba(255,204,182,0.85); 
-    box-shadow: 5px 5px 9px 1px rgba(255,204,182,0.85);
+    // border-radius: 1%;
+    // border: 1px solid #f77660;
+    // -webkit-box-shadow: 5px 5px 9px 1px rgba(255,204,182,0.85); 
+    // box-shadow: 5px 5px 9px 1px rgba(255,204,182,0.85);
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    border-radius: 10px;
 }
 
 #description {

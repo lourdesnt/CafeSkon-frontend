@@ -59,9 +59,9 @@
                     <div (click)="getAllProducts()" style="font-size:20px"><b>All</b></div>
                 </ng-template>
                 <ng-template ngbTabContent>
-                    <div class="row">
+                    <div class="row products">
                         <div class="col-sm-12 col-md-6 col-lg-4 p-3" *ngFor="let product of products; index as i">
-                            <a href="" [routerLink]="['/products/product', products[i].id]" routerLink="/products/product/{{products[i].id}}">
+                            <a href="" [routerLink]="['/products', products[i].id]" routerLink="/products/{{products[i].id}}">
                                 <div class="card">
                                     <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                                         <img src={{product.image}} class="img-fluid" alt="{{product.name}}"/>
@@ -84,7 +84,7 @@
                     <div (click)="searchCategory($event, 'CAKE')" style="color:#ffafcc; font-size:20px">Cakes</div>
                 </ng-template>
                 <ng-template ngbTabContent>
-                    <div class="row">
+                    <div class="row products">
                         <div class="col-sm-12 col-md-6 col-lg-4 p-3" *ngFor="let product of products; index as i">
                             <a href="" [routerLink]="['/products/product', products[i].id]" routerLink="/products/product/{{products[i].id}}">
                                 <div class="card">
@@ -109,7 +109,7 @@
                     <div (click)="searchCategory($event, 'COOKIE')" style="color:#f6bd60; font-size:20px">Cookies</div>
                 </ng-template>
                 <ng-template ngbTabContent>
-                    <div class="row">
+                    <div class="row products">
                         <div class="col-sm-12 col-md-6 col-lg-4 p-3" *ngFor="let product of products; index as i">
                             <a href="" [routerLink]="['/products/product', products[i].id]" routerLink="/products/product/{{products[i].id}}">
                                 <div class="card">
@@ -134,7 +134,7 @@
                     <div (click)="searchCategory($event, 'COFFEE')" style="color:#d4a373; font-size:20px">Coffees</div>
                 </ng-template>
                 <ng-template ngbTabContent>
-                    <div class="row">
+                    <div class="row products">
                         <div class="col-sm-12 col-md-6 col-lg-4 p-3" *ngFor="let product of products; index as i">
                             <a href="" [routerLink]="['/products/product', products[i].id]" routerLink="/products/product/{{products[i].id}}">
                                 <div class="card">
@@ -159,7 +159,7 @@
                     <div (click)="searchCategory($event, 'DRINK')" style="color:#84a59d; font-size:20px">Drinks</div>
                 </ng-template>
                 <ng-template ngbTabContent>
-                    <div class="row">
+                    <div class="row products">
                         <div class="col-sm-12 col-md-6 col-lg-4 p-3" *ngFor="let product of products; index as i">
                             <a href="" [routerLink]="['/products/product', products[i].id]" routerLink="/products/product/{{products[i].id}}">
                                 <div class="card">

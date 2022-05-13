@@ -4,10 +4,10 @@
         <a href="/products" routerLink="/products"><button type="button" class="btn btn-danger btn-link"><i class="nc-icon nc-minimal-left"></i><label class="l-button">See all products</label></button></a>
     </div>
     <div class="row py-3">
-        <div class="col-md-6 col-sm-12">
+        <div class="col-lg-6 col-md-12 col-sm-12">
             <img src="{{productChosen.image}}" alt="{{productChosen.name}}">
         </div>
-        <div class="col-md-6 col-sm-12" id="details">
+        <div class="col-lg-6 col-md-12 col-sm-12" id="details">
             <div class="col-12 text-left">
                 <h3><b>{{productChosen.name}}</b></h3>
             </div>
@@ -18,10 +18,10 @@
             <div class="col-12 text-center" id="price">
                 <p><b>{{productChosen.price | number: '1.2-2'}} $</b></p>
             </div>
-            <form [formGroup]="myForm">
+            <form>
                 <div class="form-inline d-flex justify-content-center" id="quantityForm">
                     <label>Quantity:</label>
-                    <input type="number" value="1" oninput="this.value==0 ? this.value=1 : this.value>99? this.value=99 : this.value = Math.abs(this.value)" id="quantity" formControlName="quantity" class="form-control" placeholder="1" size="2" maxlength="2" minlength="1" min="1" max="99" [(ngModel)]="quantity">
+                    <input type="number" value="1" oninput="this.value==0 ? this.value=1 : this.value>99? this.value=99 : this.value = Math.abs(this.value)" id="quantity" class="form-control" placeholder="1" size="2" maxlength="2" minlength="1" min="1" max="99" name="quantity" [(ngModel)]="item.quantity" #quantity="ngModel">
                 </div>
             </form>
             <div class="d-flex justify-content-center" id="buttonAdd">
@@ -29,7 +29,7 @@
             </div>
         </div>
     </div>
-    <div class="row px-3">
+    <div class="row p-3">
         <h4>Reviews</h4>
     </div>
     <ng-template #noreviews>
@@ -37,28 +37,56 @@
             <h5>There are currently 0 reviews, you can leave one now!</h5>
         </div>
     </ng-template>
-    <div class="row" *ngIf="reviews != null && reviews.length>0 else noreviews">
-        
-    </div>
-    <form (ngSubmit)="saveReview()" autocomplete="off" [formGroup]="reviewForm">
-        <div class="row px-3">
-            <fieldset class="rating" formControlName="rating">
-                <input type="radio" id="star5" name="rating" [value]="5"/><label class = "full" for="star5" title="5 stars"></label>
-                <input type="radio" id="star4" name="rating" [value]="4"/><label class = "full" for="star4" title="4 stars"></label>
-                <input type="radio" id="star3" name="rating" [value]="3"/><label class = "full" for="star3" title="3 stars"></label>
-                <input type="radio" id="star2" name="rating" [value]="2"/><label class = "full" for="star2" title="2 stars"></label>
-                <input type="radio" id="star1" name="rating" [value]="1"/><label class = "full" for="star1" title="1 star"></label>
-            </fieldset>
+    <div class="row px-3 d-flex justify-content-center" *ngIf="reviews != null && reviews.length > 0 else noreviews">
+        <div class="row px-3 d-block w-100 mt-2" *ngFor="let review of reviews; index as i" id="comment-container">
+                <div class="bg-white">
+
+                    <div class="flex-row d-flex">
+                        <div class="d-flex flex-column justify-content-start mt-2">
+                            <span class="d-block font-weight-bold name">{{currentUser}}</span>
+                            <span class="date text-black-50">{{currentDate | date :'mediumDate'}}</span>
+                        </div>
+                    </div>
+
+                    <div class="flex-row d-flex">
+                        <ngb-rating [max]="5" [(rate)]="review.rating" [readonly]="true">
+                            <ng-template let-fill="fill" let-index="index">
+                                <span class="star" [class.filled]="fill === 100">&#9733;</span>
+                            </ng-template>
+                        </ngb-rating>
+                    </div>
+
+                    <div class="mt-2">
+                        <p class="comment-text">{{review.comment}}</p>
+                    </div>
+                </div>
         </div>
+    </div>
+    <div class="row px-3 pt-3">
+        <h5>Leave a review:</h5>
+    </div>
+    <form (ngSubmit)="saveReview()" autocomplete="off" #reviewForm="ngForm">
         <div class="row px-3">
+            <ngb-rating [max]="5" [(rate)]="productRating" [readonly]="false" name="rating" [(ngModel)]="newReview.rating" #rating="ngModel">
+                <ng-template let-fill="fill" let-index="index">
+                    <span class="star" [class.filled]="fill === 100">&#9733;</span>
+                </ng-template>
+            </ngb-rating>
+            <p style="font-size: 2em; display: inline-block">(*)</p>
+        </div>
+        <!-- <div class="row px-3">
             <span class="form-text text-danger"
                           *ngIf="newReview.rating==0">
                         A rating is required
             </span>
+        </div> -->
+        <div class="row px-3">
+            <textarea class="form-control" rows="4" placeholder="What do you think of this product?" name="comment"
+                [(ngModel)]="newReview.comment" #comment="ngModel"></textarea>
         </div>
         <div class="row p-3">
-            <textarea class="form-control" rows="4" placeholder="What do you think of this product?" [formControl]="comment" ></textarea>
+            <button type="submit" class="btn btn-danger btn-block btn-round" [disabled] ="newReview.rating == 0">Send review</button>
         </div>
-    </form>
-</div>
+        </form>
+    </div>
 <app-footer></app-footer>

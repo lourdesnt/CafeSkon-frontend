@@ -19,7 +19,6 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllProducts();
-    console.log(this.products[0].image);
   }
 
   search(event: any){

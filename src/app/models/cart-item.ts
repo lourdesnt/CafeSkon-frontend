@@ -6,6 +6,6 @@ export class CartItem {
     quantity: number;
 
     constructor(){
-        this.quantity=0;
+        this.quantity=1;
     }
 }

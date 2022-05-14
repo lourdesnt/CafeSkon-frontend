@@ -4,44 +4,76 @@
         <a href="/cart" routerLink="/cart"><button type="button" class="btn btn-danger btn-link"><i class="nc-icon nc-minimal-left"></i><label class="l-button">Go to cart</label></button></a>
     </div>
     <div class="row p-3">
-        <h2>Order</h2>
+        <h2 class="m-0">Order</h2>
     </div>
-    <form>
-        <div class="form-group">
-          <label for="inputFName">First Name</label>
-          <input type="text" class="form-control" id="fName" placeholder="First Name">
+    <form [formGroup]="orderForm" novalidate>
+      <div class="row pb-3">
+        <div class="col">
+          <label for="inputFName">First Name *</label>
+          <input type="text" class="form-control"
+            [ngClass]="orderForm.controls['firstName'].hasError('required') && orderForm.controls['firstName'].touched ? 'form-control is-invalid' : 'form-control'"
+            id="fName" placeholder="First Name" minlength="1" maxlength="20" formControlName="firstName">
+          <small class="error-text" *ngIf="orderForm.controls['firstName'].hasError('required') && orderForm.controls['firstName'].touched">
+            First name is <strong>required</strong>
+          </small>
         </div>
-        <div class="form-group">
-            <label for="inputLName">Last Name</label>
-            <input type="text" class="form-control" id="lName" placeholder="Last Name">
-          </div>
-        <div class="form-group">
-          <label for="inputAddress">Address</label>
-          <input type="text" class="form-control" id="address" placeholder="Address">
+        <div class="col">
+          <label for="inputLName">Last Name *</label>
+          <input type="text" class="form-control" 
+          [ngClass]="orderForm.controls['lastName'].hasError('required') && orderForm.controls['lastName'].touched ? 'form-control is-invalid' : 'form-control'"
+          id="lName" placeholder="Last Name" minlength="1" maxlength="20" formControlName="lastName">
+          <small class="error-text" *ngIf="orderForm.controls['lastName'].hasError('required') && orderForm.controls['lastName'].touched">
+            Last name is <strong>required</strong>
+          </small>
         </div>
-        <div class="form-group">
-            <label for="inputPostalCode">Postal Code</label>
-            <input type="text" class="form-control" id="postalCode" placeholder="Postal Code">
+      </div>
+      <div class="row px-3 pb-3">
+          <label for="inputAddress">Address *</label>
+          <input type="text" class="form-control" 
+          [ngClass]="orderForm.controls['address'].hasError('required') && orderForm.controls['address'].touched ? 'form-control is-invalid' : 'form-control'"
+          id="address" placeholder="Address" minlength="1" formControlName="address">
+          <small class="error-text" *ngIf="orderForm.controls['address'].hasError('required') && orderForm.controls['address'].touched">
+            Address is <strong>required</strong>
+          </small>
+      </div>
+      <div class="row pb-3">
+        <div class="col">
+            <label for="inputPostalCode">Postal Code *</label>
+            <input type="text" class="form-control" 
+            [ngClass]="orderForm.controls['postalCode'].hasError('required') && orderForm.controls['postalCode'].touched ? 'form-control is-invalid' : 'form-control'"
+            id="postalCode" placeholder="Postal Code" minlength="5" formControlName="postalCode">
+            <small class="error-text" *ngIf="orderForm.controls['postalCode'].hasError('required') && orderForm.controls['postalCode'].touched">
+              Postal Code is <strong>required</strong> and has to be <strong>5 numbers long</strong>
+            </small>
         </div>
-        <div class="form-group">
-            <label for="inputPhone">Phone</label>
-            <input type="text" class="form-control" id="phone" placeholder="Phone">
+        <div class="col">
+            <label for="inputPhone">Phone *</label>
+            <input type="text" class="form-control"
+            [ngClass]="orderForm.controls['phone'].hasError('required') && orderForm.controls['phone'].touched ? 'form-control is-invalid' : 'form-control'"
+            id="phone" placeholder="Phone" minlength="5" maxlength="9" formControlName="phone">
+            <small class="error-text"
+              *ngIf="orderForm.controls['phone'].hasError('required') && orderForm.controls['phone'].touched">
+              Phone is <strong>required</strong> and has to be <strong>at least 5 numbers long</strong> and <strong>9 numbers long max</strong>
+            </small>
         </div>
-        <div class="form-group">
+      </div>
+      <div class="row pb-3">
+        <div class="col">
             <label for="inputPayment">Choose a payment:</label>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="paymentCash" id="payment1" value="Cash" checked>
+            <div class="form-check pl-3">
+                <input class="form-check-input" type="radio" name="payment" id="payment1" value="Cash" checked formControlName="payment">
                 <label class="form-check-label" for="payment1">
                   Cash
                 </label>
               </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="paymentCredit" id="payment2" value="Credit Card">
+              <div class="form-check pl-3">
+                <input class="form-check-input" type="radio" name="payment" id="payment2" value="Credit Card" formControlName="payment">
                 <label class="form-check-label" for="payment2">
                   Credit Card
                 </label>
               </div>
+            </div>
         </div>
-        <button type="submit" class="btn btn-danger">Confirm order</button>
+        <button type="submit" class="btn btn-danger" [disabled]="!orderForm.valid">Confirm order</button>
       </form>
 </div>

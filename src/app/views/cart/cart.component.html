@@ -29,7 +29,9 @@
                     </div>
                 </div>
             </td>
-            <td>{{item.quantity}}</td>
+            <td>
+                <input type="number" value="{{item.quantity}}" oninput="this.value==0 ? this.value=1 : this.value>99? this.value=99 : this.value = Math.abs(this.value)" id="quantity" class="form-control" placeholder="1" size="2" maxlength="2" minlength="1" min="1" max="99" name="quantity" [(ngModel)]="item.quantity" #quantity="ngModel">
+            </td>
             <td>{{getItemPrice(item) | number:'1.2-2'}}$</td>
             <td id="delete"><i (click)="deleteItem(item)" class="nc-icon nc-simple-remove"></i></td>
         </tr>

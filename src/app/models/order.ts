@@ -2,7 +2,7 @@ import { CartItem } from "./cart-item";
 import { User } from "./user";
 
 export class Order {
-    id: any;
+    id?: any;
     customer: User;
     items: CartItem[];
     firstName: string;

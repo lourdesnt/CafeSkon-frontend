@@ -49,6 +49,7 @@ export class UserService {
 
   public logout(){
     this._user = undefined;
+    localStorage.setItem('username', null);
   }
 
   public isLogged(): Observable<boolean> {

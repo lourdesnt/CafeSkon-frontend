@@ -11,6 +11,7 @@ import { UserService } from 'app/services/user.service';
 export class CartComponent implements OnInit {
 
   public items: CartItem[];
+  public finalItems: CartItem[] = [];
   public total: number;
 
   constructor(private userService: UserService,
@@ -27,7 +28,17 @@ export class CartComponent implements OnInit {
 
   }
 
+  updateItemsList(){
+    this.finalItems = this.items;
+    if(this.finalItems != null && this.finalItems.length>0){
+      this.total = this.finalItems.map(item => item.product.price*item.quantity).reduce((a,b)=> a+b, 0);
+    }
+    localStorage.setItem('cart', JSON.stringify(this.finalItems));
+    console.log(this.finalItems);
+  }
+
   getItemPrice(item: CartItem): number {
+    this.updateItemsList();
     return item.product.price*item.quantity;
   }
 

@@ -26,6 +26,9 @@ import { CartComponent } from './views/cart/cart.component';
 import { OrderComponent } from './views/order/order.component';
 import { ProfileComponent } from './views/profile/profile.component';
 import { AuthGuard } from './services/guards/auth.guard';
+import { DashProductsComponent } from './views/admin-dashboard/dash-products/dash-products.component';
+import { DashOrdersComponent } from './views/admin-dashboard/dash-orders/dash-orders.component';
+import { DashSidebarComponent } from './views/admin-dashboard/dash-sidebar/dash-sidebar.component';
 
 
 @NgModule({
@@ -44,6 +47,9 @@ import { AuthGuard } from './services/guards/auth.guard';
     CartComponent,
     OrderComponent,
     ProfileComponent,
+    DashSidebarComponent,
+    DashProductsComponent,
+    DashOrdersComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +69,9 @@ import { AuthGuard } from './services/guards/auth.guard';
       { path: "register",                       component: RegisterComponent },
       { path: "profile",
         canLoad: [AuthGuard],
-        canActivate: [AuthGuard],               component: ProfileComponent }
+        canActivate: [AuthGuard],               component: ProfileComponent },
+      { path: "dashboard/products",              component: DashProductsComponent },
+      { path: "dashboard/orders",             component: DashOrdersComponent }
     ]),
     ComponentsModule,
     ExamplesModule,

@@ -1,0 +1,42 @@
+<!-- <div class="bg-light border-right" id="sidebar-wrapper">
+  <div class="sidebar-heading">Cafe Skön</div>
+  <div class="list-group list-group-flush">
+    <a href="#" class="list-group-item list-group-item-action bg-light">
+      <i class="nc-icon nc-basket"></i>
+      Products
+    </a>
+    <a href="#" class="list-group-item list-group-item-action bg-light">
+      <i class="nc-icon nc-delivery-fast"></i>
+        Orders
+    </a>
+  </div>
+</div> -->
+
+<div class="sidebar bg-light border-right" [ngClass]="{ 'expanded': isExpanded }">
+  <div class="header">
+    <h1 class="title">
+      Cafe Skön
+    </h1>
+    <div class="toggle pb-1" (click)="handleSidebarToggle()">
+      <span class="chevron p-0"></span>
+    </div>
+  </div>
+  <div class="content">
+    <div class="link">
+      <div class="content" [routerLink]="['/dashboard/products']" [routerLinkActive]="'active'">
+        <div class="icon pb-2">
+          <i class="nc-icon nc-basket"></i>
+        </div>
+        <div class="title">Products</div>
+      </div>
+    </div>
+    <div class="link with-children">
+      <div class="content" [routerLink]="['/dashboard/orders']" [routerLinkActive]="'active'">
+        <div class="icon pb-1">
+          <i class="nc-icon nc-delivery-fast"></i>
+        </div>
+        <div class="title">Orders</div>
+      </div>
+    </div>
+  </div>
+</div>

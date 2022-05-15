@@ -1,0 +1,4 @@
+<app-dash-sidebar [isExpanded]="sidebarExpanded" (toggleSidebar)="sidebarExpanded = !sidebarExpanded"></app-dash-sidebar>
+<div class="container" [ngClass]="{ 'sidebarExpanded': sidebarExpanded }">
+    <h2>Products</h2>
+</div>

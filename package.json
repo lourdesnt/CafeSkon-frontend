@@ -33,6 +33,7 @@
     "jw-bootstrap-switch-ng2": "2.0.5",
     "lord-icon-element": "^3.3.3",
     "lottie-web": "^5.9.2",
+    "ng-cdbangular": "^1.0.0",
     "ng2-nouislider": "1.8.2",
     "ngx-lottie": "^8.1.1",
     "ngx-pagination": "^5.1.1",

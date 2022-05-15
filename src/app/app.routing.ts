@@ -14,6 +14,8 @@ import { CartComponent } from './views/cart/cart.component';
 import { OrderComponent } from './views/order/order.component';
 import { AuthGuard } from './services/guards/auth.guard';
 import { ProfileComponent } from './views/profile/profile.component';
+import { DashProductsComponent } from './views/admin-dashboard/dash-products/dash-products.component';
+import { DashOrdersComponent } from './views/admin-dashboard/dash-orders/dash-orders.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -28,7 +30,9 @@ const routes: Routes = [
   { path: "register",                       component: RegisterComponent },
   { path: "profile",
     canLoad: [AuthGuard],
-    canActivate: [AuthGuard],               component: ProfileComponent }
+    canActivate: [AuthGuard],               component: ProfileComponent },
+  { path: "dashboard/products",              component: DashProductsComponent },
+  { path: "dashboard/orders",              component: DashOrdersComponent }
 ];
 
 @NgModule({

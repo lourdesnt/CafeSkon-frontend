@@ -6,6 +6,9 @@
     <div class="row p-3">
         <h2 class="m-0">Order</h2>
     </div>
+    <div class="row justify-content-center pb-5">
+      <h5>Last step! Fill in the form with the delivery information to confirm your order</h5>
+  </div>
     <form [formGroup]="orderForm" novalidate>
       <div class="row pb-3">
         <div class="col">
@@ -74,6 +77,9 @@
               </div>
             </div>
         </div>
-        <button type="submit" class="btn btn-danger" [disabled]="!orderForm.valid">Confirm order</button>
+        <div class="row d-flex justify-content-center">
+          <button type="submit" class="btn btn-danger" [disabled]="!orderForm.valid">Confirm order</button>
+        </div>
       </form>
 </div>
+<app-footer></app-footer>

@@ -18,8 +18,8 @@ export class OrderComponent implements OnInit {
     firstName: [null, Validators.required],
     lastName: [null, Validators.required],
     address: [null, Validators.required],
-    postalCode: [null, Validators.required, Validators.minLength(5), Validators.maxLength(5)],
-    phone: [null, Validators.required, Validators.minLength(5), Validators.maxLength(9)],
+    postalCode: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(5)]],
+    phone: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(9)]],
     payment: ['Cash', Validators.required]
   });
 

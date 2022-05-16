@@ -10,7 +10,6 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 
 import { ComponentsModule } from './components/components.module';
-import { ExamplesModule } from './examples/examples.module';
 import { HomeComponent } from './views/home/home.component';
 import { ProductsComponent } from './views/products/products.component';
 import { InOurCafeComponent } from './views/in-our-cafe/in-our-cafe.component';
@@ -74,7 +73,6 @@ import { DashSidebarComponent } from './views/admin-dashboard/dash-sidebar/dash-
       { path: "dashboard/orders",             component: DashOrdersComponent }
     ]),
     ComponentsModule,
-    ExamplesModule,
     AppRoutingModule,
     HttpClientModule,
     NgxPaginationModule,

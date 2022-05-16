@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Review } from 'app/models/review';
 
@@ -10,6 +10,8 @@ const API_URL = 'http://localhost:8090/reviews/';
 })
 export class ReviewService {
 
+  
+
   constructor(private http: HttpClient) { }
 
   public getAllReviews(productId: any):Observable<any>{
@@ -17,7 +19,16 @@ export class ReviewService {
   }
 
   public createReview(productId: any, review: Review):Observable<any>{
-    return this.http.post(API_URL + `${productId}/new`, review);
+    const HTTP_OPTIONS = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Access-Control-Allow-Credentials' : 'true',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, PATCH, DELETE, PUT, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With',
+      })
+    };
+    return this.http.post(API_URL + `${productId}/new`, review, HTTP_OPTIONS);
   }
 
   public deleteReview(id: any):Observable<any>{

@@ -29,6 +29,10 @@
             </div>
         </div>
     </div>
+    <div class="row p-3 info">
+        <p>At <b>Cafe Skön</b>, we are committed to helping our customers make the nutritional choices they create. Our goal is to provide as much transparency as possible on ingredients, calories, and nutritional information, as well as allergens.</p>
+        <p>Feel free to contact us: <b>nutrition@cafeskon.com</b></p>
+    </div>
     <div class="row p-3">
         <h4>Reviews</h4>
     </div>
@@ -43,7 +47,7 @@
 
                     <div class="flex-row d-flex">
                         <div class="d-flex flex-column justify-content-start mt-2">
-                            <span class="d-block font-weight-bold name">{{currentUser}}</span>
+                            <span class="d-block font-weight-bold name">{{review.username}}</span>
                             <span class="date text-black-50">{{currentDate | date :'mediumDate'}}</span>
                         </div>
                     </div>
@@ -62,7 +66,7 @@
                 </div>
         </div>
     </div>
-    <div class="row px-3 pt-3">
+    <div class="row px-3 pt-3 new-review">
         <h5>Leave a review:</h5>
     </div>
     <form (ngSubmit)="saveReview()" autocomplete="off" #reviewForm="ngForm">
@@ -84,7 +88,7 @@
             <textarea class="form-control" rows="4" placeholder="What do you think of this product?" name="comment"
                 [(ngModel)]="newReview.comment" #comment="ngModel"></textarea>
         </div>
-        <div class="row p-3">
+        <div class="row p-3 d-flex justify-content-center">
             <button type="submit" class="btn btn-danger btn-block btn-round" [disabled] ="newReview.rating == 0">Send review</button>
         </div>
         </form>

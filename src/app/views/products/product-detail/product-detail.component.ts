@@ -85,6 +85,9 @@ export class ProductDetailComponent implements OnInit {
                 });
 
                 this.newReview = new Review();
+                if(this.currentUser === null || this.currentUser === ''){
+                  this.currentUser = 'Anonymous';
+                }
                 this.submitReviewFail = false;
 
                 this.currentUser = localStorage.getItem('username');
@@ -109,13 +112,9 @@ export class ProductDetailComponent implements OnInit {
   }
 
   saveReview(){
-    this.newReview.product = this.productChosen;
-    if(this.currentUser == null || this.currentUser === ''){
-      this.currentUser = 'Anonymous';
-    }
     this.newReview.username = this.currentUser;
     //this.reviews.push(this.newReview);
-    this.reviewService.createReview(this.productChosen, this.newReview).subscribe(
+    this.reviewService.createReview(this.productChosen.id, this.newReview).subscribe(
       (data) => {
         console.log(data);
         this.reviews.push(this.newReview);

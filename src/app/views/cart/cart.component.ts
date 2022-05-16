@@ -42,6 +42,11 @@ export class CartComponent implements OnInit {
     return item.product.price*item.quantity;
   }
 
+  getTotalPrice(): number {
+    this.updateItemsList();
+    return this.total;
+  }
+
   deleteItem(item: CartItem){
     var matchingItem = this.items.find(i => i.product.id == item.product.id);
     this.items.forEach((product,index)=>{

@@ -6,6 +6,9 @@
     <div class="row p-3">
         <h2>Cart</h2>
     </div>
+    <div class="row justify-content-center pb-5">
+        <h5>Here you can check the products you added to your cart, ready to go?</h5>
+    </div>
     <ng-template #noitems>
         <div class="row p-3 d-flex justify-content-center">
             <h4>Sorry! Your cart is empty  <i class='far fa-frown'></i></h4>
@@ -35,12 +38,12 @@
             <td>{{getItemPrice(item) | number:'1.2-2'}}$</td>
             <td id="delete"><i (click)="deleteItem(item)" class="nc-icon nc-simple-remove"></i></td>
         </tr>
-        <div class="row d-flex justify-content-end p-3 center">
+        <div class="row d-flex justify-content-end px-3 pt-3 pb-0 center">
             <h3><b>Total:&nbsp;</b></h3>
-            <h3>{{total | number:'1.2-2'}} $</h3>
+            <h3 style="margin-right: 30px">{{getTotalPrice() | number:'1.2-2'}} $</h3>
         </div>
-        <div class="row d-flex justify-content-end py-4 px-3 center">
-            <a href="/order" routerLink="/order"><button type="button" class="btn btn-danger">Order now</button></a>
+        <div class="row d-flex justify-content-end px-3 center">
+            <a href="/order" routerLink="/order"><button type="button" class="btn btn-danger" style="margin-right: 30px">Order now</button></a>
         </div>
     </div>
 </div>

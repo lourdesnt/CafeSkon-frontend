@@ -112,12 +112,15 @@ export class ProductDetailComponent implements OnInit {
   }
 
   saveReview(){
-    this.newReview.username = this.currentUser;
+    let savedReview: Review = new Review();
+    savedReview.username = this.currentUser;
+    savedReview.rating = this.newReview.rating;
+    savedReview.comment = this.newReview.comment;
     //this.reviews.push(this.newReview);
-    this.reviewService.createReview(this.productChosen.id, this.newReview).subscribe(
+    this.reviewService.createReview(this.productChosen.id, savedReview).subscribe(
       (data) => {
         console.log(data);
-        this.reviews.push(this.newReview);
+        this.reviews.push(savedReview);
       },
       (error: Error) => {
         this.submitReviewFail = true;

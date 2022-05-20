@@ -4,7 +4,7 @@ import { User } from "./user";
 export class Order {
     id?: any;
     customer: User;
-    items: CartItem[];
+    //items: CartItem[];
     firstName: string;
     lastName: string;
     address: string;
@@ -14,7 +14,7 @@ export class Order {
     orderDate: Date;
 
     constructor(){
-        this.items = [];
+        //this.items = [];
         this.firstName = '';
         this.lastName = '';
         this.address = '';

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CartItem } from 'app/models/cart-item';
 import { Order } from 'app/models/order';
 import { User } from 'app/models/user';
 import { UserService } from 'app/services/user.service';
@@ -13,6 +14,7 @@ import { UserService } from 'app/services/user.service';
 export class OrderComponent implements OnInit {
 
   order: Order;
+  items: CartItem[] = JSON.parse(localStorage.getItem('cart'));
 
   orderForm = this.fb.group({
     firstName: [null, Validators.required],
@@ -34,7 +36,7 @@ export class OrderComponent implements OnInit {
       this.router.navigate(['/login']);
       return;
     }
-    this.order.items = JSON.parse(localStorage.getItem('cart'));
+    this.items.forEach(item => item.order = this.order);
     this.order.firstName = this.orderForm.controls['firstName'].value;
     this.order.lastName = this.orderForm.controls['lastName'].value;
     this.order.address = this.orderForm.controls['address'].value;

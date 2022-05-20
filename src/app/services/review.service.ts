@@ -10,8 +10,6 @@ const API_URL = 'http://localhost:8090/reviews/';
 })
 export class ReviewService {
 
-  
-
   constructor(private http: HttpClient) { }
 
   public getAllReviews(productId: any):Observable<any>{

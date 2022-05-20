@@ -6,7 +6,7 @@ export class User {
     email: string;
     password: string;
     role: any;
-    orders: Order[] = [];
+    //orders: Order[] = [];
 
     constructor(){
         this.username='';

@@ -1,11 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { CartItem } from 'app/models/cart-item';
+import { OrderDto } from 'app/models/dto/order-dto';
 import { Order } from 'app/models/order';
 import { User } from 'app/models/user';
+import { OrderService } from 'app/services/order.service';
 import { UserService } from 'app/services/user.service';
 
+@Component({
+  selector: 'ngbd-modal-content',
+  template: `
+    <div class="modal-header">
+      <h4 class="modal-title">Your order is now registered!</h4>
+    </div>
+    <div class="modal-body">
+      <p>Check your email for more information about your order</p>
+    </div>
+    <div class="modal-footer">
+    <a routerLink="/home" href="/home"><button type="button" class="btn btn-warning">Nice!</button></a>
+    </div>
+  `
+})
+export class NgbdModalContent {
+  constructor(private router: Router, public activeModal: NgbActiveModal) { }
+
+}
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
@@ -13,8 +34,9 @@ import { UserService } from 'app/services/user.service';
 })
 export class OrderComponent implements OnInit {
 
-  order: Order;
+  order: OrderDto;
   items: CartItem[] = JSON.parse(localStorage.getItem('cart'));
+  //orderCreated: boolean;
 
   orderForm = this.fb.group({
     firstName: [null, Validators.required],
@@ -25,28 +47,43 @@ export class OrderComponent implements OnInit {
     payment: ['Cash', Validators.required]
   });
 
-  constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {
-    this.order = new Order();
-   }
+  constructor(private fb: FormBuilder, private userService: UserService, private orderService: OrderService, private router: Router) {
+    //this.orderCreated = false;
+    this.order = new OrderDto();
+  }
 
-  setOrder(): Order{
+  ngOnInit(): void {
+  }
+
+  setOrder(): OrderDto{
     if(this.userService.isLogged){
-      this.order.customer = this.userService.user;
+      this.order.customerId = localStorage.getItem('username');
     } else {
       this.router.navigate(['/login']);
       return;
     }
-    this.items.forEach(item => item.order = this.order);
     this.order.firstName = this.orderForm.controls['firstName'].value;
     this.order.lastName = this.orderForm.controls['lastName'].value;
     this.order.address = this.orderForm.controls['address'].value;
     this.order.postalCode = this.orderForm.controls['postalCode'].value;
     this.order.phone = this.orderForm.controls['phone'].value;
     this.order.payment = this.orderForm.controls['payment'].value;
+    this.items.forEach(item => this.order.productMap[item.product.id] = item.quantity);
+    console.log(this.order);
     return this.order;
   }
 
-  ngOnInit(): void {
+  submit(): void {
+    this.order = this.setOrder();
+    this.orderService.createOrder(this.order).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (error: Error) => {
+        //this.orderCreated = true;
+        console.error("Error creating order");
+      }
+    )
   }
 
 }

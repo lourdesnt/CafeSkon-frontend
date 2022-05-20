@@ -8,6 +8,16 @@ export class OrderDto {
     phone: string;
     payment: string;
     orderDate: Date;
-    productMap: Map<string, string>;
+    productMap: any;
 
+    constructor(){
+        this.firstName = "";
+        this.lastName = "";
+        this.address = "";
+        this.postalCode = "";
+        this.phone = "";
+        this.payment = "";
+        this.orderDate = new Date();
+        this.productMap = {};
+    }
 }

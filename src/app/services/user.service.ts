@@ -59,7 +59,7 @@ export class UserService {
     }
     var userLogged: User;
     this.getUser(username).subscribe(user => userLogged = user);
-    return this.http.get<User>(API_URL + 'login', { params: { username: userLogged.username, password: userLogged.password } })
+    this.http.get<User>(API_URL + 'login', { params: { username: userLogged.username, password: userLogged.password } })
     .pipe(
       map(user => {
         this._user = user;

@@ -9,7 +9,7 @@
     <div class="row justify-content-center pb-5">
       <h5>Last step! Fill in the form with the delivery information to confirm your order</h5>
   </div>
-    <form [formGroup]="orderForm" novalidate>
+    <form [formGroup]="orderForm" novalidate (ngSubmit) ="submit()">
       <div class="row pb-3">
         <div class="col">
           <label for="inputFName">First Name *</label>

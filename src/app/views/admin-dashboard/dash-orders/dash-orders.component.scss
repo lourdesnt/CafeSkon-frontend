@@ -1,0 +1,29 @@
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+tr {
+    display: flex;
+    justify-content: space-around;
+}
+
+th, td {
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #e8e9eb;
+    padding: 10px 14px;
+    width: 100%;
+}
+
+button {
+    border-color: #202020!important;
+    color: #202020!important;
+}
+
+button:hover {
+    border-color: #202020!important;
+    background: #202020!important;
+    color: white!important;
+}

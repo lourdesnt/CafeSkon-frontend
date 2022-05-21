@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { OrderListDto } from 'app/models/dto/order-list-dto';
+import { OrderService } from 'app/services/order.service';
 
 @Component({
   selector: 'app-dash-orders',
@@ -9,9 +11,28 @@ export class DashOrdersComponent implements OnInit {
 
   sidebarExpanded = true;
 
-  constructor() { }
+  orders: OrderListDto[];
+
+  constructor(private orderService: OrderService) {
+    this.getAllOrders();
+   }
 
   ngOnInit(): void {
+  }
+
+  getAllOrders(){
+    this.orderService.getAllOrders().subscribe(
+      (data) => {
+        if(data==null){
+          this.orders=[];
+        } else {
+          this.orders = data;
+        }
+        console.log(data);
+      },
+      (error: Error) => {
+        console.error("Error getting orders");
+      })
   }
 
 }

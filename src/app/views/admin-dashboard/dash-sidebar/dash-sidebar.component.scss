@@ -48,8 +48,10 @@
     }
   }
 
-  background: #1d1e2c;
-  color: #6d6e7e;
+  background: #f9907d;
+  color: white;
+
+  //#6d6e7e
 
   .header {
     display: flex;
@@ -57,11 +59,11 @@
     justify-content: center;
     padding: 10px;
 
-    background: #0f1017;
+    //background: #0f1017;
 
     h1 {
       font-size: 20px;
-      color: #6d6e7e;
+      color: white;
       margin: 0;
       flex: 1;
       transition: 0.3s;
@@ -70,7 +72,7 @@
     }
 
     .chevron {
-      color: #6d6e7e;
+      color: white;
       cursor: pointer;
       transition: 0.3s;
       margin-left: -25px;
@@ -87,24 +89,13 @@
       }
 
       &:hover {
-        color: white;
+        color: #fef1ef;
       }
     }
   }
 
   .content {
     .link {
-      .children {
-        .content {
-          background: #27283a;
-          // padding-left: 30px;
-          padding-left: 10px;
-
-          &.active {
-            background: #191a27;
-          }
-        }
-      }
       .content {
         display: flex;
         align-items: center;
@@ -116,19 +107,22 @@
         transition: 0.3s;
 
         &:hover {
-          background: #0f1017;
+          background: #fef1ef;
           .title {
-            color: white;
+            color: #f8745c;
           }
-          svg {
-            fill: white;
+          i {
+            color: #f8745c;
           }
         }
 
         &.active {
-          background: #0f1017;
+          background: #fef1ef;
           .title {
-            color: white;
+            color: #f8745c;
+          }
+          i {
+            color: #f8745c;
           }
         }
 
@@ -142,7 +136,7 @@
         .title {
           flex: 1;
           // display: none;
-          color: #6d6e7e;
+          color: white;
           transition: 0.3s;
           max-width: 0px;
           overflow: hidden;

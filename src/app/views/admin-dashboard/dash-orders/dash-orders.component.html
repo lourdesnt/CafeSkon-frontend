@@ -1,4 +1,28 @@
 <app-dash-sidebar [isExpanded]="sidebarExpanded" (toggleSidebar)="sidebarExpanded = !sidebarExpanded"></app-dash-sidebar>
 <div class="container" [ngClass]="{ 'sidebarExpanded': sidebarExpanded }">
-    <h2>Orders</h2>
+    <div class="row p-3">
+        <h2>Orders</h2>
+    </div>
+    <div class="orders-table">
+        <tr>
+            <th>Id</th>
+            <th>Customer</th>
+            <th>Address</th>
+            <th>Postal Code</th>
+            <th>Phone</th>
+            <th>Payment</th>
+            <th>Date</th>
+            <th>Details</th>
+        </tr>
+        <tr *ngFor="let order of orders">
+            <td>{{order.id}}</td>
+            <td>{{order.firstName}} {{order.lastName}}</td>
+            <td>{{order.address}}</td>
+            <td>{{order.postalCode}}</td>
+            <td>{{order.phone}}</td>
+            <td>{{order.payment}}</td>
+            <td>{{order.orderDate}}</td>
+            <td><button class="btn btn-outline-default btn-sm">See more</button></td>
+        </tr>
+    </div>
 </div>

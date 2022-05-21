@@ -14,7 +14,7 @@ export class OrderService {
 
   constructor(private http: HttpClient) { }
 
-  public getAllOrders(orders: OrderListDto[]):Observable<any>{
+  public getAllOrders():Observable<any>{
     return this.http.get(API_URL + 'all');
   }
 

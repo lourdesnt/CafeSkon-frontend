@@ -1,12 +1,11 @@
-.orders-table {
+.products-table {
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
 }
 
-tr {
-    display: flex;
-    justify-content: space-around;
+tr, td {
+    white-space: nowrap;
 }
 
 th, td {

@@ -28,6 +28,7 @@ import { AuthGuard } from './services/guards/auth.guard';
 import { DashProductsComponent } from './views/admin-dashboard/dash-products/dash-products.component';
 import { DashOrdersComponent } from './views/admin-dashboard/dash-orders/dash-orders.component';
 import { DashSidebarComponent } from './views/admin-dashboard/dash-sidebar/dash-sidebar.component';
+import { DashOrderDetailComponent } from './views/admin-dashboard/dash-orders/dash-order-detail/dash-order-detail.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { DashSidebarComponent } from './views/admin-dashboard/dash-sidebar/dash-
     ProfileComponent,
     DashSidebarComponent,
     DashProductsComponent,
-    DashOrdersComponent
+    DashOrdersComponent,
+    DashOrderDetailComponent
   ],
   imports: [
     BrowserModule,

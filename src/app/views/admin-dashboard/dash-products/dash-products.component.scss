@@ -1,0 +1,51 @@
+.products-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+tr, td {
+    white-space: nowrap;
+}
+
+th, td {
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #e8e9eb;
+    padding: 10px 14px;
+    width: 100%;
+}
+
+th:nth-child(7), th:nth-child(8), td:nth-child(7), td:nth-child(8) {
+    border: none;
+}
+
+#edit {
+    color: #ffd47c;
+    cursor: pointer;
+}
+
+#delete {
+    color: #f47463;
+    cursor: pointer;
+}
+
+img {
+    width: 100%;
+}
+
+.error-text{
+    color: red;
+}
+
+h5 {
+    padding-left: 15px;
+}
+
+.card-add{
+    padding: 10px;
+    margin-bottom: 20px;
+    background: #f4f1de;
+    box-shadow: 0 2px 8px rgba(176, 125, 98, 0.26);
+    border-radius: 10px;
+}

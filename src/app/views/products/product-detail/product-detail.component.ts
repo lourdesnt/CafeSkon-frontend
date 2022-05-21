@@ -19,11 +19,11 @@ import { Review } from 'app/models/review';
       <h4 class="modal-title">Yay!</h4>
     </div>
     <div class="modal-body">
-      <p>Your product has been add to your cart</p>
+      <p>Your product has been added to your cart</p>
     </div>
     <div class="modal-footer">
-    <a routerLink="/products" href="/products"><button type="button" class="btn btn-default">Other products</button></a>
-    <a routerLink="/cart" href="/cart"><button type="button" class="btn btn-warning">See my cart</button></a>
+    <a routerLink="/products" href="/products"><button type="button" class="btn btn-default btn-sm m-2">Other products</button></a>
+    <a routerLink="/cart" href="/cart"><button type="button" class="btn btn-warning btn-sm m-2">See my cart</button></a>
     </div>
   `
 })
@@ -108,7 +108,7 @@ export class ProductDetailComponent implements OnInit {
       this.cart.push(this.item);
     }
     localStorage.setItem('cart', JSON.stringify(this.cart));
-    const modalRef = this.modalService.open(NgbdModalContent);
+    this.modalService.open(NgbdModalContent);
   }
 
   saveReview(){

@@ -1,4 +1,87 @@
 <app-dash-sidebar [isExpanded]="sidebarExpanded" (toggleSidebar)="sidebarExpanded = !sidebarExpanded"></app-dash-sidebar>
 <div class="container" [ngClass]="{ 'sidebarExpanded': sidebarExpanded }">
-    <h2>Products</h2>
+    <div class="row p-3">
+        <h2>Products</h2>
+    </div>
+    <div class="row px-3 d-flex justify-content-center">
+        <div class="card-add">
+            <h5 class="title">Add Product</h5>
+            <form [formGroup]="addProductForm" (ngSubmit) ="submit()">
+                <div class="row px-3 pb-3">
+                    <div class="col pr-5">
+                        <label for="inputName">Name *</label>
+                        <input type="text" class="form-control" 
+                        [ngClass]="addProductForm.controls['name'].hasError('required') && addProductForm.controls['name'].touched ? 'form-control is-invalid' : 'form-control'"
+                        id="name" placeholder="Name" minlength="1" formControlName="name">
+                        <small class="error-text" *ngIf="addProductForm.controls['name'].hasError('required') && addProductForm.controls['name'].touched">
+                            Name is <strong>required</strong>
+                        </small>
+                    </div>
+                    <div class="col pr-5">
+                        <label for="inputDescription">Description *</label>
+                        <input type="text" class="form-control" 
+                        [ngClass]="addProductForm.controls['description'].hasError('required') && addProductForm.controls['description'].touched ? 'form-control is-invalid' : 'form-control'"
+                        id="description" placeholder="Description" minlength="1" formControlName="description">
+                        <small class="error-text" *ngIf="addProductForm.controls['description'].hasError('required') && addProductForm.controls['description'].touched">
+                            Description is <strong>required</strong>
+                        </small>
+                    </div>
+                    <div class="col pr-5">
+                        <label for="inputPrice">Price *</label>
+                        <input type="number" class="form-control" 
+                        [ngClass]="addProductForm.controls['price'].hasError('required') &&
+                        addProductForm.controls['price'].touched ? 'form-control is-invalid' : 'form-control'"
+                        id="price" formControlName="price" class="form-control" placeholder="1.00" min="1.00" max="1000.00" step="0.01"
+                        oninput="this.value<0 ? this.value=Math.abs(this.value) : this.value">
+                        <small class="error-text" *ngIf="addProductForm.controls['price'].hasError('required') && addProductForm.controls['price'].touched">
+                            Price is <strong>required</strong>
+                        </small>
+                    </div>
+                    <div class="col pr-5">
+                        <label for="inputImage">Image URL *</label>
+                        <input type="text" class="form-control" 
+                        [ngClass]="addProductForm.controls['image'].hasError('required') && addProductForm.controls['image'].touched ? 'form-control is-invalid' : 'form-control'"
+                        id="image" placeholder="Image URL" minlength="1" formControlName="image">
+                        <small class="error-text" *ngIf="addProductForm.controls['image'].hasError('required') && addProductForm.controls['image'].touched">
+                            Image URL is <strong>required</strong>
+                        </small>
+                    </div>
+                    <div class="col pr-5">
+                        <label for="inputCategory">Category *</label>
+                        <select class="form-control" id="category" formControlName="category">
+                            <option>CAKE</option>
+                            <option>COOKIE</option>
+                            <option>DRINK</option>
+                            <option>COFFEE</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <button type="submit" class="btn btn-default" [disabled]="!addProductForm.valid">Save</button>
+                  </div>
+            </form>
+        </div>
+    </div>
+    <div class="products-table pb-5">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Image</th>
+            <th>Category</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr *ngFor="let product of products">
+            <td>{{product.id}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.description}}</td>
+            <td>{{product.price | number: '1.2-2'}} $</td>
+            <td><img src="{{product.image}}" alt="{{product.name}}"></td>
+            <td>{{product.category}}</td>
+            <td id="edit"><i (click)="editProduct(product)" class="far fa-edit"></i></td>
+            <td id="delete"><i (click)="deleteProduct(product)" class="far fa-trash-alt"></i></td>
+        </tr>
+    </div>
 </div>

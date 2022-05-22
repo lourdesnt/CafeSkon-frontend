@@ -1,1 +1,32 @@
-<p>dash-order-detail works!</p>
+<app-dash-sidebar [isExpanded]="sidebarExpanded" (toggleSidebar)="sidebarExpanded = !sidebarExpanded"></app-dash-sidebar>
+<div class="container" [ngClass]="{ 'sidebarExpanded': sidebarExpanded }">
+    <div class="row p-3">
+        <h3>Order Number <label id="order-id">#{{orderId}}</label></h3>
+    </div>
+    <div class="items-table">
+        <tr>
+            <th>Items summary</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total Price</th>
+        </tr>
+        <tr *ngFor="let product of orderProducts">
+            <td>
+                <div class="row d-flex align-items-center">
+                    <div class="col-2 d-flex justify-content-center">
+                        <img src="{{product.image}}" alt="{{product.name}}">
+                    </div>
+                    <div class="col-8">
+                        <h4>{{product.name}}</h4>
+                    </div>
+                </div>
+            </td>
+            <td>{{order.productMap[product.id]}}</td>
+            <td>{{product.price | number:'1.2-2'}}$</td>
+            <td>{{getTotalPrice(product) | number:'1.2-2'}}$</td>
+        </tr>
+        <div class="row p-3 d-flex justify-content-center">
+            <a href="/dashboard/orders" routerLink="/dashboard/orders"><button type="button" class="btn btn-danger">See all orders</button></a>
+        </div>
+    </div>
+</div>

@@ -81,7 +81,7 @@
             <td><img src="{{product.image}}" alt="{{product.name}}"></td>
             <td>{{product.category}}</td>
             <td id="edit"><i (click)="editProduct(product.id, product)" class="far fa-edit"></i></td>
-            <td id="delete"><i (click)="deleteProduct(product)" class="far fa-trash-alt"></i></td>
+            <td id="delete"><i (click)="delete(product.id)" class="far fa-trash-alt"></i></td>
         </tr>
     </div>
 </div>

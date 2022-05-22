@@ -72,6 +72,18 @@ export class DashProductsComponent implements OnInit {
     console.log(this.addedProduct.id);
   }
 
+  delete(id: any) {
+    this.productService.deleteProduct(id).subscribe(
+      (data) => {
+        //parent.location.reload();
+        this.getAllProducts();
+      },
+      (error: Error) => {
+        console.error("Error deleting product");
+      }
+    )
+  }
+
   submit(){
     this.addedProduct = this.setProduct();
     if(this.products.indexOf(this.addedProduct) !== -1){

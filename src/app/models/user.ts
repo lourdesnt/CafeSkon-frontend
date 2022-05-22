@@ -1,12 +1,12 @@
 import { Order } from "./order";
 
-enum Role {
-    USER,
-    ADMIN
+export enum Role {
+    USER = 'USER',
+    ADMIN = 'ADMIN'
 }
 
 export class User {
-    id: any;
+    id?: any;
     username: string;
     email: string;
     password: string;

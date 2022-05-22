@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Category, Product } from 'app/models/product';
 import { Observable } from 'rxjs';
@@ -37,7 +37,16 @@ export class ProductService {
   }
 
   public deleteProduct(id: any): Observable<any>{
-    return this.http.delete(API_URL + `delete/${id}`);
+    const HTTP_OPTIONS = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Access-Control-Allow-Credentials' : 'true',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, PATCH, DELETE, PUT, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With',
+      })
+    };
+    return this.http.delete(API_URL + `delete/${id}`, HTTP_OPTIONS);
   }
 
 }

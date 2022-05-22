@@ -71,8 +71,9 @@ import { DashOrderDetailComponent } from './views/admin-dashboard/dash-orders/da
       { path: "profile",
         canLoad: [AuthGuard],
         canActivate: [AuthGuard],               component: ProfileComponent },
-      { path: "dashboard/products",              component: DashProductsComponent },
-      { path: "dashboard/orders",             component: DashOrdersComponent }
+      { path: "dashboard/products",             component: DashProductsComponent },
+      { path: "dashboard/orders",               component: DashOrdersComponent },
+      { path: "dashboard/orders/:id",           component: DashOrderDetailComponent }
     ]),
     ComponentsModule,
     AppRoutingModule,

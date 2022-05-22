@@ -18,6 +18,10 @@ export class OrderService {
     return this.http.get(API_URL + 'all');
   }
 
+  public getOrder(id: any):Observable<any>{
+    return this.http.get(API_URL + `order/${id}`);
+  }
+
   public createOrder(order: OrderDto):Observable<any>{
     return this.http.post(API_URL + 'new', order);
   }

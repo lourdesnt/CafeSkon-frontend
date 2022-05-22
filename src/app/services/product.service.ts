@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Product } from 'app/models/product';
+import { Category, Product } from 'app/models/product';
 import { Observable } from 'rxjs';
 
 const API_URL = 'http://localhost:8090/products/';
@@ -20,7 +20,7 @@ export class ProductService {
     return this.http.get(API_URL + `product/${id}`);
   }
 
-  public getProductsByCategory(category: any): Observable<any>{
+  public getProductsByCategory(category: Category): Observable<any>{
     return this.http.get(API_URL + `category/${category}`);
   }
 

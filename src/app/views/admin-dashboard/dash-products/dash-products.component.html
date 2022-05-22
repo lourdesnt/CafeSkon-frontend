@@ -80,7 +80,7 @@
             <td>{{product.price | number: '1.2-2'}} $</td>
             <td><img src="{{product.image}}" alt="{{product.name}}"></td>
             <td>{{product.category}}</td>
-            <td id="edit"><i (click)="editProduct(product)" class="far fa-edit"></i></td>
+            <td id="edit"><i (click)="editProduct(product.id, product)" class="far fa-edit"></i></td>
             <td id="delete"><i (click)="deleteProduct(product)" class="far fa-trash-alt"></i></td>
         </tr>
     </div>

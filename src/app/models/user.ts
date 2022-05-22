@@ -1,17 +1,21 @@
 import { Order } from "./order";
 
+enum Role {
+    USER,
+    ADMIN
+}
+
 export class User {
     id: any;
     username: string;
     email: string;
     password: string;
-    role: any;
-    //orders: Order[] = [];
+    role: Role;
 
     constructor(){
         this.username='';
         this.email='';
         this.password='';
-        this.role='';
+        this.role=Role.USER;
     }
 }

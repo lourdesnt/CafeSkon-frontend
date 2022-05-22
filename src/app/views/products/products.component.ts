@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CartItem } from 'app/models/cart-item';
+import { Category } from 'app/models/product';
 import { ProductService } from 'app/services/product.service';
 
 @Component({
@@ -32,7 +33,7 @@ export class ProductsComponent implements OnInit {
     }
   }
 
-  searchCategory(event:any, category: any){
+  searchCategory(event:any, category: Category){
     this.productService.getProductsByCategory(category)
       .toPromise()
       .then(res => {

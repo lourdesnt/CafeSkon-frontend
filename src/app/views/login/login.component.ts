@@ -31,7 +31,11 @@ export class LoginComponent implements OnInit {
     this.userService.login(this.user).subscribe(
       (data) => {
         localStorage.setItem('username', this.user.username);
-        this.router.navigate(['/home']);
+        if(!this.userService.isAdmin()){
+          this.router.navigate(['/home']);
+        } else {
+          this.router.navigate(['/dashboard/products']);
+        }
       },
       (error: Error) => {
         this.loginFail = true;

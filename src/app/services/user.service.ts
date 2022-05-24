@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from 'app/models/user';
+import { Role, User } from 'app/models/user';
 import { Observable, of } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
@@ -49,22 +49,36 @@ export class UserService {
 
   public logout(){
     this._user = undefined;
-    localStorage.setItem('username', null);
+    localStorage.removeItem('username');
   }
 
-  public isLogged(): Observable<boolean> {
+  public isLogged(): boolean {
     var username = localStorage.getItem('username');
-    if(!username){
-      return of(false);
+    if(!username || username == null || username == undefined){
+      return false;
+    }else{
+      return true;
+    }
+  }
+
+  public isAdmin(): boolean {
+    var username = localStorage.getItem('username');
+    var isAdmin: boolean;
+    console.log(username);
+    if(!username || username == null || username == undefined){
+      return false;
     }
     var userLogged: User;
-    this.getUser(username).subscribe(user => userLogged = user);
-    this.http.get<User>(API_URL + 'login', { params: { username: userLogged.username, password: userLogged.password } })
-    .pipe(
-      map(user => {
-        this._user = user;
-        return true;
-      })
+    this.getUser(username).subscribe(
+      user => {
+        userLogged = user;
+        if(userLogged.role == 'ADMIN'){ 
+          isAdmin = true;
+        } else {
+          isAdmin = false;
+        }
+      }
     );
+    return isAdmin;
   }
 }

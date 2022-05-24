@@ -17,24 +17,39 @@ import { ProfileComponent } from './views/profile/profile.component';
 import { DashProductsComponent } from './views/admin-dashboard/dash-products/dash-products.component';
 import { DashOrdersComponent } from './views/admin-dashboard/dash-orders/dash-orders.component';
 import { DashOrderDetailComponent } from './views/admin-dashboard/dash-orders/dash-order-detail/dash-order-detail.component';
+import { AdminGuard } from './services/guards/admin.guard';
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
-  { path: "home",                           component: HomeComponent },
-  { path: "products",                       component: ProductsComponent },
-  { path: "products/:id",                   component: ProductDetailComponent },
-  { path: "cart",                           component: CartComponent },
-  { path: "order",                          component: OrderComponent },
-  { path: "in-our-cafe",                    component: InOurCafeComponent },
-  { path: "about-us",                       component: AboutUsComponent },
-  { path: "login",                          component: LoginComponent },
-  { path: "register",                       component: RegisterComponent },
-  { path: "profile",
-    canLoad: [AuthGuard],
-    canActivate: [AuthGuard],               component: ProfileComponent },
-  { path: "dashboard/products",             component: DashProductsComponent },
-  { path: "dashboard/orders",               component: DashOrdersComponent },
-  { path: "dashboard/orders/:id",           component: DashOrderDetailComponent }
+  { path: "home", component: HomeComponent },
+  { path: "products", component: ProductsComponent },
+  { path: "products/:id", component: ProductDetailComponent },
+  { path: "cart", component: CartComponent },
+  { path: "order", component: OrderComponent },
+  { path: "in-our-cafe", component: InOurCafeComponent },
+  { path: "about-us", component: AboutUsComponent },
+  { path: "login", component: LoginComponent },
+  { path: "register", component: RegisterComponent },
+  {
+    path: "profile",
+    component: ProfileComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "dashboard/products",
+    component: DashProductsComponent,
+    canActivate: [AdminGuard]
+  },
+  {
+    path: "dashboard/orders",
+    component: DashOrdersComponent,
+    canActivate: [AdminGuard]
+  },
+  {
+    path: "dashboard/orders/:id",
+    component: DashOrderDetailComponent,
+    canActivate: [AdminGuard]
+  },
 ];
 
 @NgModule({

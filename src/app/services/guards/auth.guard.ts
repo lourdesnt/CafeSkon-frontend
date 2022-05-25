@@ -13,8 +13,12 @@ export class AuthGuard implements CanActivate {
   }
 
   canActivate() {
-    if (!this.userService.isLogged()) {
+    if (!this.userService.isLogged() || this.userService.isAdmin()) {
       console.log('Not logged in');
+      if(this.userService.isAdmin()){
+        this.router.navigate(['/dashboard/products']);
+        return false;
+      }
       this.router.navigate(['/login']);
       return false;
     }

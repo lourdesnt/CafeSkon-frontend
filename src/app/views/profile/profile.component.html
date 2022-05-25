@@ -11,76 +11,48 @@
                     <img src="./assets/img/profile_icon.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
                 </div>
                 <div class="name">
-                    <h4 class="title">{{username}}<br /></h4>
+                    <h4 class="title">{{actualUsername}}<br /></h4>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6 ml-auto mr-auto text-center">
                     <p>Here you can configure your profile settings</p>
                     <br />
-                    <button class="btn btn-outline-default btn-round"><i class="fa fa-cog"></i> Settings</button>
                 </div>
             </div>
             <br/>
-            <div class="nav-tabs-navigation">
-                <div class="nav-tabs-wrapper">
-                    <ngb-tabset [justify]="'center'">
-                        <ngb-tab title="Follows">
-                            <ng-template ngbTabContent >
-                                <div class="row following" id="follows">
-                                    <div class="col-md-6 ml-auto mr-auto">
-                                        <ul class="list-unstyled follows">
-                                            <li>
-                                                <div class="row">
-                                                    <div class="col-md-2 col-sm-2 ml-auto mr-auto">
-                                                        <img src="./assets/img/faces/clem-onojeghuo-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                                                    </div>
-                                                    <div class="col-md-7 col-sm-4 ml-auto">
-                                                        <h6>Flume<br/><small>Musical Producer</small></h6>
-                                                    </div>
-                                                    <div class="col-md-3 col-sm-2 ml-auto mr-auto">
-                                                        <div class="form-check">
-                                                          <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" value="" checked="">
-                                                            <span class="form-check-sign"></span>
-                                                          </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <hr />
-                                            <li>
-                                                <div class="row">
-                                                    <div class="col-md-2 col-sm-2 ml-auto mr-auto">
-                                                        <img src="./assets/img/faces/ayo-ogunseinde-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                                                    </div>
-                                                    <div class="col-md-7 col-sm-4 ml-auto">
-                                                        <h6>Banks<br /><small>Singer</small></h6>
-                                                    </div>
-                                                    <div class="col-md-3 col-sm-2 ml-auto mr-auto">
-                                                        <div class="form-check">
-                                                          <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" value="" checked="">
-                                                            <span class="form-check-sign"></span>
-                                                          </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </ng-template>
-                        </ngb-tab>
-                        <ngb-tab title="Following">
-                            <ng-template ngbTabContent>
-                                <h3 class="text-muted">Not following anyone yet :(</h3>
-                                <br>
-                                <button class="btn btn-warning btn-round">Find artists</button>
-                            </ng-template>
-                        </ngb-tab>
-                    </ngb-tabset>
-                </div>
+            <div class="row d-flex justify-content-center p-3">
+                <form class="register-form" (ngSubmit) ="submit()" #userForm="ngForm">
+                    <div class="form-group py-3">
+                        <label>Email</label>
+                        <input id="email" type="text" class="form-control" placeholder="Email" value="{{actualUser.email}}" name="email" [(ngModel)]="editedUser.email"
+                        #email="ngModel" required maxlength="50" [ngClass]="email.invalid && email.dirty ? 'form-control is-invalid' : 'form-control'">
+                        <div *ngIf="email.invalid && email.dirty" class="alert">
+                            <div *ngIf="email.errors?.required">Required field</div>
+                        </div>
+                        <br>
+                        <label>Contraseña</label>
+                        <input id="password" type="password" class="form-control" placeholder="Contraseña" value="{{actualUser.password}}" name="password" [(ngModel)]="editedUser.password"
+                        #password="ngModel" required minlength="6" [ngClass]="password.invalid && password.dirty ? 'form-control is-invalid' : 'form-control'">
+                        <div *ngIf="password.invalid && password.dirty" class="alert">
+                            <div *ngIf="password.errors?.required">Required field</div>
+                            <div *ngIf="password.errors?.minlength">6 characters min</div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <button type="submit" class="btn btn-block btn-warning" [disabled] ="!userForm.form.valid">Edit</button>
+                            <div *ngIf="editOk" class="form-control-feedback-ok">Account updated successfully!</div>
+                            <div *ngIf="updateFail" class="form-control-feedback">Error al updating data</div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <a class="btn btn-link btn-danger" (click)="open()">I want to delete my account</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="row d-flex justify-content-center p-3">
+                <button type="button" id="logout" class="btn btn-block btn-default" (click)="logout()"><i class="nc-icon nc-button-power"></i>Log out</button>
             </div>
         </div>
     </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit, ElementRef, HostListener } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { UserService } from 'app/services/user.service';
 
 @Component({
     selector: 'app-navbar',
@@ -9,9 +10,15 @@ import { Location, LocationStrategy, PathLocationStrategy } from '@angular/commo
 export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
+    loginRouter: string;
 
-    constructor(public location: Location, private element : ElementRef) {
+    constructor(public location: Location, private element : ElementRef, private userService: UserService) {
         this.sidebarVisible = false;
+        if(userService.isLogged()) {
+            this.loginRouter = '/profile';
+        } else {
+            this.loginRouter = '/login';
+        }
     } 
 
     ngOnInit() {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'app/services/user.service';
 
 @Component({
   selector: 'app-common-navbar',
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommonNavbarComponent implements OnInit {
 
-  constructor() { }
+  loginRouter: string;
+
+  constructor(private userService: UserService) {
+    if(userService.isLogged()) {
+      this.loginRouter = '/profile';
+    } else {
+      this.loginRouter = '/login';
+    }
+   }
 
   ngOnInit(): void {
   }

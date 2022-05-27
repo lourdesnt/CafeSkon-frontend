@@ -52,33 +52,30 @@ export class UserService {
     localStorage.removeItem('username');
   }
 
-  public isLogged(): boolean {
+  public isLogged() {
     var username = localStorage.getItem('username');
     if(!username || username == null || username == undefined){
-      return false;
-    }else{
-      return true;
+      return of(false);
+    } else {
+      return of(true);
     }
   }
 
-  public isAdmin(): boolean {
+  public isAdmin() {
     var username = localStorage.getItem('username');
-    var isAdmin: boolean;
     console.log(username);
     if(!username || username == null || username == undefined){
-      return false;
+      return of(false);
     }
     var userLogged: User;
-    this.getUser(username).subscribe(
-      user => {
-        userLogged = user;
-        if(userLogged.role == 'ADMIN'){ 
-          isAdmin = true;
-        } else {
-          isAdmin = false;
-        }
+    return this.http.get<any>(API_URL + `user/${username}`)
+    .pipe(map(data => {
+      userLogged = data;
+      if(userLogged.role == 'ADMIN'){ 
+        return true;
+      } else {
+        return false;
       }
-    );
-    return isAdmin;
+    }))
   }
 }

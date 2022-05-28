@@ -16,13 +16,21 @@ th, td {
     width: 100%;
 }
 
-button {
+#see-more {
     border-color: #202020!important;
     color: #202020!important;
 }
 
-button:hover {
+#see-more:hover {
     border-color: #202020!important;
     background: #202020!important;
     color: white!important;
+}
+
+#logout {
+    width: fit-content;
+}
+
+i{
+    padding-right: 8px;
 }

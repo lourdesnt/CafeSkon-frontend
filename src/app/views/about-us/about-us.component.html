@@ -1,4 +1,121 @@
 <app-common-navbar></app-common-navbar>
-<div class="container">
-    
+<div class="page-header page-header-small" data-parallax="true" id="especies" style="background-image: url('./assets/img/table.webp');">
+    <div class="container">
+        
+    </div>
 </div>
+<div class="container container-main">
+    <div class="row d-flex justify-content-center pt-5 px-3 pb-3">
+        <div class="col-12">
+            <img src="/assets/img/cafe_title.png" alt="What is Cafe Skön" id="title1">
+        </div>
+        <div class="col-12 py-3 text-center">
+            <p><b>Cafe Skön</b> is a cafe in the Yeonnam district of Seoul (South Korea).
+                It offers its visitors a charming terrace and the sweets desserts, like its famous scones and milk tea.
+                An unique experience for those who are searching more than a cafe.
+                <br>Discover our products, discover our place, discover <b>Cafe Skön</b>!
+            </p>
+        </div>
+    </div>
+    <div class="row px-3">
+        <div class="col-md-8 col-sm-12">
+            <img src="/assets/img/intro.png" alt="Outside of Cafe Skön" id="img1">
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <img src="/assets/img/interior1.jpg" alt="Inside of Cafe Skön" id="img2">
+        </div>
+    </div>
+    <div class="row px-3 pt-2 d-flex justify-content-between">
+        <div class="col-md-6 col-sm-12">
+            <img src="/assets/img/terrace1.JPG" alt="Terrace of Cafe Skön" id="img3">
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <img src="/assets/img/table.jpg" alt="Menu of Cafe Skön" id="img4">
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center pt-5 px-3 pb-3">
+        <div class="col-12" id="title2">
+            <img src="/assets/img/people_title.png" alt="We're people" id="title2">
+        </div>
+        <div class="col-12 py-3 text-center">
+            <p>In <b>Cafe Skön</b> the experience of our clients is one of the most important values.
+                For that reason we made our products with 100% extra care and we made our place as pleasant as possible.
+                <br>Your happiness is our happiness!
+            </p>
+        </div>
+    </div>
+    <div class="row px-3 pt-2 d-flex justify-content-around">
+        <div class="col-md-3 col-sm-6">
+            <img src="/assets/img/people1.jpg" alt="Terrace of Cafe Skön" id="img5">
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <img src="/assets/img/people2.jpg" alt="Menu of Cafe Skön" id="img5">
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <img src="/assets/img/people3.jpg" alt="Menu of Cafe Skön" id="img5">
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <img src="/assets/img/people4.jpg" alt="Menu of Cafe Skön" id="img5">
+        </div>
+    </div>
+    <div class="row d-flex pt-5 px-3 pb-3">
+        <div class="col-md-6" id="carousel">
+            <ngb-carousel [showNavigationArrows]="showNavigationArrows"
+                [showNavigationIndicators]="showNavigationIndicators">
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img src="/assets/img/detail1.jpg" alt="Detail Slide 1" class="mh-100"
+                            style="width: 100%; height: 100%;">
+                    </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img src="/assets/img/detail2.jpg" alt="Detail Slide 2" class="mh-100"
+                            style="width: 100%; height: 100%;">
+                    </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img src="/assets/img/detail3.jpg" alt="Detail Slide 3" class="mh-100"
+                            style="width: 100%; height: 100%;">
+                    </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img src="/assets/img/detail4.jpg" alt="Detail Slide 4" class="mh-100"
+                            style="width: 100%; height: 100%;">
+                    </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img src="/assets/img/detail5.jpg" alt="Detail Slide 5" class="mh-100"
+                            style="width: 100%; height: 100%;">
+                    </div>
+                </ng-template>
+            </ngb-carousel>
+            <br>
+        </div>
+        <div class="col-md-6 d-flex justify-content-center align-center">
+            <div class="row">
+                <img src="/assets/img/details_title.png" alt="The importance of details" id="title3">
+                <p class="text-center"> 
+                    In <b>Cafe Skön</b> we want to create an unique brand. That's why we care about the details.
+                    We make sure that our products have the best quality and we provide our clients all the information they need about them, including ingredients and allergens.
+                    <br>The difference is in the details.
+                </p>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center pt-5 px-3 pb-3 w-100">
+            <div class="col-12">
+                <img src="/assets/img/visit_title.png" alt="Visit us!" id="title4">
+            </div>
+            <div class="col-12 py-3 text-center">
+                <p>Visit us at 239-4 Yeonnam-dong, Mapo-gu, Seoul, South Korea</p>
+            </div>
+            <div id="map" class="col-12 map-container">
+
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

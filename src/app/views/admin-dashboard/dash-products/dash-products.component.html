@@ -1,6 +1,9 @@
 <app-dash-sidebar [isExpanded]="sidebarExpanded" (toggleSidebar)="sidebarExpanded = !sidebarExpanded"></app-dash-sidebar>
 <div class="container" [ngClass]="{ 'sidebarExpanded': sidebarExpanded }">
-    <div class="row p-3">
+    <div class="row d-flex justify-content-end px-3 pt-3 pb-0">
+        <button type="button" id="logout" class="btn btn-block btn-default" (click)="logout()"><i class="nc-icon nc-button-power"></i>Log out</button>
+    </div>
+    <div class="row px-3 pb-3 pt-0">
         <h2>Products</h2>
     </div>
     <div class="row px-3 d-flex justify-content-center">

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Product } from 'app/models/product';
 import { ProductService } from 'app/services/product.service';
+import { UserService } from 'app/services/user.service';
 
 @Component({
   selector: 'app-dash-products',
@@ -24,7 +26,7 @@ export class DashProductsComponent implements OnInit {
     category: ["CAKE", Validators.required]
   });
 
-  constructor(private productService: ProductService, private fb: FormBuilder) { 
+  constructor(private productService: ProductService, private fb: FormBuilder, private userService: UserService, private router: Router) { 
     this.getAllProducts();
     
   }
@@ -110,6 +112,9 @@ export class DashProductsComponent implements OnInit {
     this.addedProduct = new Product();
   }
 
-
+  logout(){
+    this.userService.logout();
+    this.router.navigate(['/login']);
+  }
 
 }

@@ -93,7 +93,7 @@ import { AdminGuard } from './services/guards/admin.guard';
     ComponentsModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxPaginationModule,
+    NgxPaginationModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent],

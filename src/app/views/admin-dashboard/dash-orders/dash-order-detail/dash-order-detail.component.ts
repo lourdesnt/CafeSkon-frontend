@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'app/models/product';
 import { OrderService } from 'app/services/order.service';
 import { ProductService } from 'app/services/product.service';
+import { UserService } from 'app/services/user.service';
 import { OrderDto } from '../../../../models/dto/order-dto';
 
 @Component({
@@ -21,7 +22,8 @@ export class DashOrderDetailComponent implements OnInit {
     private _route: ActivatedRoute,
     private router: Router,
     private orderService: OrderService,
-    private productService: ProductService
+    private productService: ProductService,
+    private userService: UserService
   ) {
     this.orderId = this._route.snapshot.paramMap.get("id");
     this.orderService.getOrder(this.orderId).subscribe(
@@ -51,6 +53,11 @@ export class DashOrderDetailComponent implements OnInit {
 
   getTotalPrice(product: Product): number{
     return this.order.productMap[product.id]*product.price;
+  }
+
+  logout(){
+    this.userService.logout();
+    this.router.navigate(['/login']);
   }
 
   ngOnInit(): void {}

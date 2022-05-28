@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { OrderListDto } from 'app/models/dto/order-list-dto';
 import { OrderService } from 'app/services/order.service';
+import { UserService } from 'app/services/user.service';
 
 @Component({
   selector: 'app-dash-orders',
@@ -13,7 +15,7 @@ export class DashOrdersComponent implements OnInit {
 
   orders: OrderListDto[];
 
-  constructor(private orderService: OrderService) {
+  constructor(private orderService: OrderService, private userService: UserService, private router: Router) {
     this.getAllOrders();
    }
 
@@ -33,6 +35,11 @@ export class DashOrdersComponent implements OnInit {
       (error: Error) => {
         console.error("Error getting orders");
       })
+  }
+
+  logout(){
+    this.userService.logout();
+    this.router.navigate(['/login']);
   }
 
 }

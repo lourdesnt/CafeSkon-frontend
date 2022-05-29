@@ -1,1 +1,252 @@
-<p>in-our-cafe works!</p>
+<app-common-navbar></app-common-navbar>
+<div class="page-header page-header-small" data-parallax="true" id="especies" style="background-image: url('./assets/img/cafe_header.webp');">
+    <div class="container">
+        
+    </div>
+</div>
+<div class="container">
+    <div class="row justify-content-center">
+        <h2>In our cafe</h2>
+    </div>
+    <div class="row justify-content-center">
+        <h5>Here you can know what is happening in Cake Skön!</h5>
+    </div>
+    <div class="row d-flex justify-content-around card-news">
+        <div class="col-md-6 col-sm-12 carousel">
+            <ngb-carousel [showNavigationArrows]="showNavigationArrows"
+                [showNavigationIndicators]="showNavigationIndicators" style="width: 70%;">
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img src="/assets/img/fennec/fennec1.jpg" alt="Fennec Event 1" 
+                            style="width: 100%; height: 100%;">
+                    </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img src="/assets/img/fennec/fennec2.jpg" alt="Fennec Event 2" 
+                            style="width: 100%; height: 100%;">
+                    </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img src="/assets/img/fennec/fennec3.jpg" alt="Fennec Event 3" 
+                            style="width: 100%; height: 100%;">
+                    </div>
+                </ng-template>
+            </ngb-carousel>
+        </div>
+        <div class="col-md-6 col-sm-12 info">
+            <div class="col-12 text-center">
+                <h3><b>Event: <i>Skön + Fennec</i></b></h3>
+            </div>
+            <hr>
+            <div class="col-12 text-center">
+                <h6>From 20 MAY to 21 MAY 2022</h6>
+            </div>
+            <div class="col-12 text-center">
+                <p>Come to <label id="skon">Cake Skön</label> to visit our Pop-up in collaboration with <label id="fennec">FENNEC!</label></p>
+                <p>Enjoy the day with our dessets and with gifts like a <b>90% DISCOUNT</b> and a <b>FENNEC GIVEAWAY</b>!</p>
+                <p>Bags, wallets, folding fans, cups of coffee... What are you waiting for?</p>
+            </div>
+            <div class="col-12 d-flex justify-content-center btn-like">
+                <button (click)="setFavourite1(false)" *ngIf="favourites[0]; else elseFav1" class="btn btn-danger btn-block" style="width: fit-content"><i class="nc-icon nc-favourite-28"></i> Quit like</button>
+
+			    <ng-template #elseFav1>
+				    <button (click)="setFavourite1(true)" class="btn btn-outline-danger btn-block" style="width: fit-content"><i class="nc-icon nc-favourite-28"></i> I like this!</button>
+			    </ng-template>
+            </div>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-around card-news">
+        <div class="col-md-6 col-sm-12 carousel">
+            <ngb-carousel [showNavigationArrows]="showNavigationArrows"
+                [showNavigationIndicators]="showNavigationIndicators" style="width: 70%;">
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img src="/assets/img/terrace/terrace1.jpg" alt="Terrace at day" 
+                            style="width: 100%; height: 100%;">
+                    </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img src="/assets/img/terrace/terrace2.jpg" alt="Terrace at night" 
+                            style="width: 100%; height: 100%;">
+                    </div>
+                </ng-template>
+            </ngb-carousel>
+        </div>
+        <div class="col-md-6 col-sm-12 info">
+            <div class="col-12 text-center">
+                <h3><b>Terrace now accesible!</b></h3>
+            </div>
+            <hr>
+            <div class="col-12 text-center">
+                <h6>All summer 2022</h6>
+            </div>
+            <div class="col-12 text-center">
+                <p>You can now enjoy your favourites desserts at the terrace of <label id="skon">Cake Skön</label>!</p>
+                <p>It'll be available all summer, so you can enjoy being outside in our comfortable top place.</p>
+                <p>Prepare your camera because our terrace won't let you indifferent!</p>
+            </div>
+            <div class="col-12 d-flex justify-content-center btn-like">
+                <button (click)="setFavourite2(false)" *ngIf="favourites[1]; else elseFav2" class="btn btn-danger btn-block" style="width: fit-content"><i class="nc-icon nc-favourite-28"></i> Quit like</button>
+
+			    <ng-template #elseFav2>
+				    <button (click)="setFavourite2(true)" class="btn btn-outline-danger btn-block" style="width: fit-content"><i class="nc-icon nc-favourite-28"></i> I like this!</button>
+			    </ng-template>
+            </div>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-around card-news">
+        <div class="col-md-6 col-sm-12 carousel">
+            <ngb-carousel [showNavigationArrows]="showNavigationArrows"
+                [showNavigationIndicators]="showNavigationIndicators" style="width: 70%;">
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img src="/assets/img/valentines/valentines1.jpg" alt="Valentines day 1" 
+                            style="width: 100%; height: 100%;">
+                    </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img src="/assets/img/valentines/valentines2.jpg" alt="Valentines day 2"
+                            style="width: 100%; height: 100%;">
+                    </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img src="/assets/img/valentines/valentines3.jpg" alt="Valentines day 3" 
+                            style="width: 100%; height: 100%;">
+                    </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img src="/assets/img/valentines/valentines4.jpg" alt="Valentines day 4"  
+                            style="width: 100%; height: 100%;">
+                    </div>
+                </ng-template>
+            </ngb-carousel>
+        </div>
+        <div class="col-md-6 col-sm-12 info">
+            <div class="col-12 text-center">
+                <h3><b>Valentine's day 2022</b></h3>
+            </div>
+            <hr>
+            <div class="col-12 text-center">
+                <h6>14 FEB</h6>
+            </div>
+            <div class="col-12 text-center">
+                <p>The most romantic day of the year has arrive at <label id="skon">Cake Skön</label>!</p>
+                <p>Chocolates, lattes, everything sweet you can find it in our cafe.</p>
+                <p>We also have released a <i>Valentine's pack</i> which includes various cakes and a bottle of wine.</p>
+                <p>Come with your significant other and you will receive a <b>20% DISCOUNT</b>.</p>
+            </div>
+            <div class="col-12 d-flex justify-content-center btn-like">
+                <button (click)="setFavourite3(false)" *ngIf="favourites[2]; else elseFav3" class="btn btn-danger btn-block" style="width: fit-content"><i class="nc-icon nc-favourite-28"></i> Quit like</button>
+
+			    <ng-template #elseFav3>
+				    <button (click)="setFavourite3(true)" class="btn btn-outline-danger btn-block" style="width: fit-content"><i class="nc-icon nc-favourite-28"></i> I like this!</button>
+			    </ng-template>
+            </div>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-around card-news">
+        <div class="col-md-6 col-sm-12 carousel">
+            <ngb-carousel [showNavigationArrows]="showNavigationArrows"
+                [showNavigationIndicators]="showNavigationIndicators" style="width: 70%;">
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img src="/assets/img/diy/diy1.jpg" alt="DIY 1" 
+                            style="width: 100%; height: 100%;">
+                    </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img src="/assets/img/diy/diy2.jpg" alt="DIY 2" 
+                            style="width: 100%; height: 100%;">
+                    </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img src="/assets/img/diy/diy3.jpg" alt="DIY 3" 
+                            style="width: 100%; height: 100%;">
+                    </div>
+                </ng-template>
+            </ngb-carousel>
+        </div>
+        <div class="col-md-6 col-sm-12 info">
+            <div class="col-12 text-center">
+                <h3><b>Event: <i>DIY day</i></b></h3>
+            </div>
+            <hr>
+            <div class="col-12 text-center">
+                <h6>FROM 20 JAN TO 22 JAN 2022</h6>
+            </div>
+            <div class="col-12 text-center">
+                <p>Would you like to make your own cups with <label id="skon">Skön</label> style?</p>
+                <p>But not only cups! In the <i>DIY days</i> you can make and personalize cups, bags, candles...</p>
+                <p>Join our <i>DIY day</i> and bring with you a sweet memory of your day at <label id="skon">Cafe Skön!</label></p>
+            </div>
+            <div class="col-12 d-flex justify-content-center btn-like">
+                <button (click)="setFavourite4(false)" *ngIf="favourites[3]; else elseFav4" class="btn btn-danger btn-block" style="width: fit-content"><i class="nc-icon nc-favourite-28"></i> Quit like</button>
+
+			    <ng-template #elseFav4>
+				    <button (click)="setFavourite4(true)" class="btn btn-outline-danger btn-block" style="width: fit-content"><i class="nc-icon nc-favourite-28"></i> I like this!</button>
+			    </ng-template>
+            </div>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-around card-news">
+        <div class="col-md-6 col-sm-12 carousel">
+            <ngb-carousel [showNavigationArrows]="showNavigationArrows"
+                [showNavigationIndicators]="showNavigationIndicators" style="width: 70%;">
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img src="/assets/img/christmas/christmas1.jpg" alt="Christmas 1" 
+                            style="width: 100%; height: 100%;">
+                    </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img src="/assets/img/christmas/christmas2.jpg" alt="Christmas 2" 
+                            style="width: 100%; height: 100%;">
+                    </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img src="/assets/img/christmas/christmas3.jpg" alt="Christmas 3"  
+                            style="width: 100%; height: 100%;">
+                    </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img src="/assets/img/christmas/christmas4.jpg" alt="Christmas 4"  
+                            style="width: 100%; height: 100%;">
+                    </div>
+                </ng-template>
+            </ngb-carousel>
+        </div>
+        <div class="col-md-6 col-sm-12 info">
+            <div class="col-12 text-center">
+                <h3><b>Happy Christmas!</b></h3>
+            </div>
+            <hr>
+            <div class="col-12 text-center">
+                <h6>24 DEC</h6>
+            </div>
+            <div class="col-12 text-center">
+                <p>It's Christmas time at <label id="skon">Cake Skön</label>!</p>
+                <p>Enjoy a joyful day with your family or friends tasting our latest Christmas sweets surrounded with Christmas decoration.</p>
+                <p>We can also wrap your Skön gifts ;)</p>
+            </div>
+            <div class="col-12 d-flex justify-content-center btn-like">
+                <button (click)="setFavourite5(false)" *ngIf="favourites[4]; else elseFav5" class="btn btn-danger btn-block" style="width: fit-content"><i class="nc-icon nc-favourite-28"></i> Quit like</button>
+
+			    <ng-template #elseFav5>
+				    <button (click)="setFavourite5(true)" class="btn btn-outline-danger btn-block" style="width: fit-content"><i class="nc-icon nc-favourite-28"></i> I like this!</button>
+			    </ng-template>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

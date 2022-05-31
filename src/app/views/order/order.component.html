@@ -6,12 +6,12 @@
     <div class="row p-3">
         <h2 class="m-0">Order</h2>
     </div>
-    <div class="row justify-content-center pb-5">
-      <h5>Last step! Fill in the form with the delivery information to confirm your order</h5>
-  </div>
+    <div class="row justify-content-center px-3 pb-5">
+      <h5 class="text-center">Last step! Fill in the form with the delivery information to confirm your order</h5>
+    </div>
     <form [formGroup]="orderForm" novalidate (ngSubmit) ="submit()">
       <div class="row pb-3">
-        <div class="col">
+        <div class="col-md-6 col-sm-12">
           <label for="inputFName">First Name *</label>
           <input type="text" class="form-control"
             [ngClass]="orderForm.controls['firstName'].hasError('required') && orderForm.controls['firstName'].touched ? 'form-control is-invalid' : 'form-control'"
@@ -20,7 +20,7 @@
             First name is <strong>required</strong>
           </small>
         </div>
-        <div class="col">
+        <div class="col-md-6 col-sm-12">
           <label for="inputLName">Last Name *</label>
           <input type="text" class="form-control" 
           [ngClass]="orderForm.controls['lastName'].hasError('required') && orderForm.controls['lastName'].touched ? 'form-control is-invalid' : 'form-control'"
@@ -40,7 +40,7 @@
           </small>
       </div>
       <div class="row pb-3">
-        <div class="col">
+        <div class="col-md-6 col-sm-12">
             <label for="inputPostalCode">Postal Code *</label>
             <input type="text" class="form-control" 
             [ngClass]="orderForm.controls['postalCode'].hasError('required') && orderForm.controls['postalCode'].touched ? 'form-control is-invalid' : 'form-control'"
@@ -49,7 +49,7 @@
               Postal Code is <strong>required</strong> and has to be <strong>5 numbers long</strong>
             </small>
         </div>
-        <div class="col">
+        <div class="col-md-6 col-sm-12">
             <label for="inputPhone">Phone *</label>
             <input type="text" class="form-control"
             [ngClass]="orderForm.controls['phone'].hasError('required') && orderForm.controls['phone'].touched ? 'form-control is-invalid' : 'form-control'"
@@ -81,5 +81,10 @@
           <button type="submit" class="btn btn-danger" [disabled]="!orderForm.valid">Confirm order</button>
         </div>
       </form>
+      <div class="row px-3 pb-3 pt-5 info">
+        <p>Your order will arrive between 20 to 40 minutos. In <b>Cafe Skön</b>, we are committed to manage and assure that your order will arrive in the best conditions.</p>
+        <p>Our delivery schedule is: Monday to Sunday, from 10:00 to 20:00.</p>
+        <p>Feel free to contact us: <b>delivery@cafeskon.com</b></p>
+      </div>
 </div>
 <app-footer></app-footer>

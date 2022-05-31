@@ -34,7 +34,6 @@ export class CartComponent implements OnInit {
       this.total = this.finalItems.map(item => item.product.price*item.quantity).reduce((a,b)=> a+b, 0);
     }
     localStorage.setItem('cart', JSON.stringify(this.finalItems));
-    console.log(this.finalItems);
   }
 
   getItemPrice(item: CartItem): number {

@@ -8,7 +8,7 @@ import { User } from 'app/models/user';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  styleUrls: ['./home.component.scss', '../../../styles.scss'],
   providers: [NgbCarouselConfig]
 })
 export class HomeComponent implements OnInit {

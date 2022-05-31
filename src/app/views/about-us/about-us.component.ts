@@ -5,7 +5,7 @@ import { MapService } from 'app/services/map.service';
 @Component({
   selector: 'app-about-us',
   templateUrl: './about-us.component.html',
-  styleUrls: ['./about-us.component.scss'],
+  styleUrls: ['./about-us.component.scss', '../../../styles.scss'],
   providers: [NgbCarouselConfig]
 })
 export class AboutUsComponent implements OnInit {

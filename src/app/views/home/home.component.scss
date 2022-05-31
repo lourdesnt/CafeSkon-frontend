@@ -2,8 +2,21 @@
     margin: 20px;
 }
 
+// #subtitle1 {
+//     width: 100%;
+// }
+
 #subtitle1 {
-    width: 100%;
+    font-family: "Aloevera", Arial, Helvetica, sans-serif;
+    #st1 {
+        color: #f47463;
+    }
+    #st2 {
+        color: #aec6cf;
+    }
+    #st3 {
+        color: #f7ec49;
+    }
 }
 
 #home-text-1 {
@@ -15,7 +28,8 @@
 }
 
 #subtitle2 {
-    width: 60%;
+    font-family: "Aloevera", Arial, Helvetica, sans-serif;
+    color: #bd8e69;
 }
 
 #home-text-2 {
@@ -39,10 +53,15 @@
     margin: 20px 0px;
 }
 
+// #subtitle3 {
+//     display: block;
+//     margin: auto;
+//     width: 30%;
+// }
+
 #subtitle3 {
-    display: block;
-    margin: auto;
-    width: 30%;
+    font-family: "Aloevera", Arial, Helvetica, sans-serif;
+    color: #69b65e;
 }
 
 #cafe1 {

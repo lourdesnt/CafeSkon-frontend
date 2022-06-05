@@ -27,7 +27,7 @@ export class NgbdModalContent {
   public delete(): void {
     this.userService.delete(this.username).subscribe(
       (data) => {
-        localStorage.deleteItem('username');
+        localStorage.removeItem('username');
         this.activeModal.close();
         this.router.navigate(['/login']);
       },

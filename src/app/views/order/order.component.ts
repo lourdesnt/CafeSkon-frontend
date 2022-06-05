@@ -35,6 +35,7 @@ export class NgbdModalContent {
 export class OrderComponent implements OnInit {
   order: OrderDto;
   items: CartItem[] = JSON.parse(localStorage.getItem("cart"));
+  currentUser: string;
   //orderCreated: boolean;
 
   orderForm = this.fb.group({
@@ -61,16 +62,17 @@ export class OrderComponent implements OnInit {
   ) {
     //this.orderCreated = false;
     this.order = new OrderDto();
+    this.currentUser = localStorage.getItem('username');
   }
 
   ngOnInit(): void {}
 
   setOrder(): OrderDto {
-    if (this.userService.isLogged) {
-      this.order.customerId = localStorage.getItem("username");
-    } else {
+    if (!this.currentUser || this.currentUser == null || this.currentUser == '') {
       this.router.navigate(["/login"]);
       return;
+    } else {
+      this.order.customerId = localStorage.getItem("username");
     }
     this.order.firstName = this.orderForm.controls["firstName"].value;
     this.order.lastName = this.orderForm.controls["lastName"].value;
@@ -87,6 +89,9 @@ export class OrderComponent implements OnInit {
 
   submit(): void {
     this.order = this.setOrder();
+    if (!this.currentUser || this.currentUser == null || this.currentUser == '') {
+      return;
+    }
     this.orderService.createOrder(this.order).subscribe(
       (data) => {
         console.log(data);

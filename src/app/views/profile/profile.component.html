@@ -1,7 +1,7 @@
 <app-common-navbar></app-common-navbar>
 
 <div class="wrapper">
-    <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('./assets/img/profile_background.jpg');">
+    <div class="page-header page-header-small" data-parallax="true" style="background-image: url('./assets/img/profile_background.jpg');">
         <div class="filter"></div>
     </div>
     <div class="section profile-content">
@@ -42,7 +42,7 @@
                         <div class="row">
                             <button type="submit" class="btn btn-block btn-warning" [disabled] ="!userForm.form.valid">Edit</button>
                             <div *ngIf="editOk" class="form-control-feedback-ok">Account updated successfully!</div>
-                            <div *ngIf="updateFail" class="form-control-feedback">Error al updating data</div>
+                            <div *ngIf="updateFail" class="form-control-feedback">Error updating data</div>
                         </div>
                         <br>
                         <div class="row">

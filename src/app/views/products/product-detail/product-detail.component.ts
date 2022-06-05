@@ -50,7 +50,7 @@ export class ProductDetailComponent implements OnInit {
   public newReview: Review;
   public submitReviewFail: boolean;
   public currentDate = new Date();
-  public currentUser;
+  public currentUser : string;
   productRating = 0;
 
   constructor(private productService: ProductService,
@@ -85,12 +85,13 @@ export class ProductDetailComponent implements OnInit {
                 });
 
                 this.newReview = new Review();
-                if(this.currentUser === null || this.currentUser === ''){
-                  this.currentUser = 'Anonymous';
-                }
+                
                 this.submitReviewFail = false;
 
                 this.currentUser = localStorage.getItem('username');
+                if(!this.currentUser || this.currentUser == null || this.currentUser == ''){
+                  this.currentUser = 'Anonymous';
+                }
               }
 
   ngOnInit(): void {

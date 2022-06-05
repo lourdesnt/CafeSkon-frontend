@@ -132,6 +132,9 @@
     },
     "@schematics/angular:directive": {
       "prefix": "app"
+    },
+    "@schematics/angular:application": {
+      "strict": false
     }
   },
   "cli": {

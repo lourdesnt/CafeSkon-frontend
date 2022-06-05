@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 
-import { ComponentsModule } from './components/components.module';
 import { HomeComponent } from './views/home/home.component';
 import { ProductsComponent } from './views/products/products.component';
 import { InOurCafeComponent } from './views/in-our-cafe/in-our-cafe.component';
@@ -90,7 +89,6 @@ import { AdminGuard } from './services/guards/admin.guard';
         canActivate: [AdminGuard]
       },
     ]),
-    ComponentsModule,
     AppRoutingModule,
     HttpClientModule,
     NgxPaginationModule

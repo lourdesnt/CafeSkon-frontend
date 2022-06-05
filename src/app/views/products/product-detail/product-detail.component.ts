@@ -39,19 +39,17 @@ export class NgbdModalContent {
 })
 export class ProductDetailComponent implements OnInit {
 
-  public productChosen: Product;
-  public username: string;
-  public user: User;
-  public id: any;
-  public item: CartItem;
-  public quantity: number = 1;
-  public cart : CartItem[];
-  public reviews: Review[];
-  public newReview: Review;
-  public submitReviewFail: boolean;
-  public currentDate = new Date();
-  public currentUser : string;
-  productRating = 0;
+  public productChosen: Product; //Producto seleccionado
+  public id: any; //Id del producto seleccionado
+  public item: CartItem; //Producto del carrito
+  public quantity: number = 1; //Cantidad de producto
+  public cart : CartItem[]; //Carrito
+  public reviews: Review[]; //Lista de reviews
+  public newReview: Review; //Nueva review
+  public submitReviewFail: boolean; //Indica si ha fallado enviar la review
+  public currentDate = new Date(); //Fecha actual
+  public currentUser : string; //Usuario actual (nombre de usuario)
+  productRating = 0; //Valoración del producto
 
   constructor(private productService: ProductService,
               private reviewService: ReviewService,
@@ -98,9 +96,9 @@ export class ProductDetailComponent implements OnInit {
     
   }
 
+  //Método para añadir el producto al carrito
   public addToCart(){
     this.item.product = this.productChosen;
-    //this.item.quantity = this.quantity;
     console.log(this.item);
     var matchingItem = this.cart.find(i => i.product.id == this.item.product.id);
     if(matchingItem){
@@ -112,12 +110,12 @@ export class ProductDetailComponent implements OnInit {
     this.modalService.open(NgbdModalContent);
   }
 
+  //Método para enviar una nueva review
   saveReview(){
     let savedReview: Review = new Review();
     savedReview.username = this.currentUser;
     savedReview.rating = this.newReview.rating;
     savedReview.comment = this.newReview.comment;
-    //this.reviews.push(this.newReview);
     this.reviewService.createReview(this.productChosen.id, savedReview).subscribe(
       (data) => {
         console.log(data);

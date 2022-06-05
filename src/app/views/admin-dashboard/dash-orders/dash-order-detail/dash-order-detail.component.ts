@@ -39,6 +39,7 @@ export class DashOrderDetailComponent implements OnInit {
     
   }
 
+  //Método para obtener todos los productos del pedido actual seleccionado
   getProducts(){
     for (let product in this.order.productMap) {
       this.productService.getProduct(product).subscribe(
@@ -51,10 +52,12 @@ export class DashOrderDetailComponent implements OnInit {
     }
   }
 
+  //Método para obtener el precio total
   getTotalPrice(product: Product): number{
     return this.order.productMap[product.id]*product.price;
   }
 
+  //Método para cerrar sesión
   logout(){
     this.userService.logout();
     this.router.navigate(['/login']);

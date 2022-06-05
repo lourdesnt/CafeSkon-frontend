@@ -33,10 +33,9 @@ export class NgbdModalContent {
   styleUrls: ["./order.component.scss"],
 })
 export class OrderComponent implements OnInit {
-  order: OrderDto;
-  items: CartItem[] = JSON.parse(localStorage.getItem("cart"));
-  currentUser: string;
-  //orderCreated: boolean;
+  order: OrderDto; //Pedido a realizar
+  items: CartItem[] = JSON.parse(localStorage.getItem("cart")); //Productos del carrito
+  currentUser: string; //Usuario actual (nombre de usuario)
 
   orderForm = this.fb.group({
     firstName: [null, Validators.required],
@@ -55,24 +54,23 @@ export class OrderComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private userService: UserService,
     private orderService: OrderService,
     private router: Router,
     private modalService: NgbModal
   ) {
-    //this.orderCreated = false;
     this.order = new OrderDto();
     this.currentUser = localStorage.getItem('username');
   }
 
   ngOnInit(): void {}
 
+  //Método que asocia cada valor de los inputs del formulario con los atributos del pedido
   setOrder(): OrderDto {
     if (!this.currentUser || this.currentUser == null || this.currentUser == '') {
       this.router.navigate(["/login"]);
       return;
     } else {
-      this.order.customerId = localStorage.getItem("username");
+      this.order.customerId = localStorage.getItem("username"); //Se establece el usuario del pedido
     }
     this.order.firstName = this.orderForm.controls["firstName"].value;
     this.order.lastName = this.orderForm.controls["lastName"].value;
@@ -87,6 +85,7 @@ export class OrderComponent implements OnInit {
     return this.order;
   }
 
+  //Método submit que crea el pedido
   submit(): void {
     this.order = this.setOrder();
     if (!this.currentUser || this.currentUser == null || this.currentUser == '') {
@@ -99,7 +98,6 @@ export class OrderComponent implements OnInit {
         this.modalService.open(NgbdModalContent);
       },
       (error: Error) => {
-        //this.orderCreated = true;
         console.error("Error creating order");
       }
     );

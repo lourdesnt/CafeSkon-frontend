@@ -1,10 +1,12 @@
 import { Order } from "./order";
 
+//Enumerado para roles de usuarios
 export enum Role {
     USER = 'USER',
     ADMIN = 'ADMIN'
 }
 
+//Modelo para usuarios
 export class User {
     id?: any;
     username: string;

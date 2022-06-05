@@ -11,8 +11,8 @@ import { UserService } from 'app/services/user.service';
 })
 export class LoginComponent implements OnInit {
 
-  public user: User;
-  public loginFail: boolean;
+  public user: User; //Usuario a loggear
+  public loginFail: boolean; //Indica si ha habido algún error en el login
   focus;
   focus1;
 
@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
     
   }
 
+  //Método submit para el login del usuario
   public submit(): void {
     console.log("User: "+ this.user.username);
     this.userService.login(this.user).subscribe(
@@ -39,7 +40,7 @@ export class LoginComponent implements OnInit {
       },
       (error: Error) => {
         this.loginFail = true;
-        console.error("Error al realizar el acceso");
+        console.error("Error getting access");
       }
     )
   }

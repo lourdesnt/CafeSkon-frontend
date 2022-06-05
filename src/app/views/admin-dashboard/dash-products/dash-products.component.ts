@@ -35,6 +35,7 @@ export class DashProductsComponent implements OnInit {
     
   }
 
+  //Método para listar todos los productos
   getAllProducts(){
     this.productService.getAllProducts().subscribe(
       (data) => {
@@ -51,6 +52,7 @@ export class DashProductsComponent implements OnInit {
       })
   }
 
+  //Método para asignar los valores de los inputs del formulario a un producto
   setProduct(): Product {
     this.addedProduct.name = this.addProductForm.controls["name"].value;
     this.addedProduct.description = this.addProductForm.controls["description"].value;
@@ -64,6 +66,7 @@ export class DashProductsComponent implements OnInit {
     return this.addedProduct;
   }
 
+  //Método para asignar los atributos del producto a editar a los inputs del formulario
   editProduct(id: any, product: Product) {
     this.addProductForm.controls["name"].setValue(product.name);
     this.addProductForm.controls["description"].setValue(product.description);
@@ -74,10 +77,10 @@ export class DashProductsComponent implements OnInit {
     console.log(this.addedProduct.id);
   }
 
+  //Método para eliminar producto
   delete(id: any) {
     this.productService.deleteProduct(id).subscribe(
       (data) => {
-        //parent.location.reload();
         this.getAllProducts();
       },
       (error: Error) => {
@@ -86,6 +89,7 @@ export class DashProductsComponent implements OnInit {
     )
   }
 
+  //Método submit que añade o modifica un producto
   submit(){
     this.addedProduct = this.setProduct();
     if(this.products.indexOf(this.addedProduct) !== -1){
@@ -112,6 +116,7 @@ export class DashProductsComponent implements OnInit {
     this.addedProduct = new Product();
   }
 
+  //Método para cerrar sesión
   logout(){
     this.userService.logout();
     this.router.navigate(['/login']);

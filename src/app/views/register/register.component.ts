@@ -11,8 +11,8 @@ import { UserService } from 'app/services/user.service';
 })
 export class RegisterComponent implements OnInit {
 
-  public user: User;
-  public registerFail: boolean;
+  public user: User; //Usuario a registrar
+  public registerFail: boolean; //Indica si se ha realizado el registro mal
   focus;
   focus1;
   focus2;
@@ -25,6 +25,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //Método submit para el registro del usuario
   public submit(): void {
     console.log("user: "+ this.user.username);
     this.userService.register(this.user).subscribe(

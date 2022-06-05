@@ -14,6 +14,7 @@ export class NavbarComponent implements OnInit {
 
     constructor(public location: Location, private element : ElementRef, private userService: UserService) {
         this.sidebarVisible = false;
+        //Si el usuario está loggeado no irá a página de login, sino a la de perfil
         if(userService.isLogged()) {
             this.loginRouter = '/profile';
         } else {
@@ -25,11 +26,11 @@ export class NavbarComponent implements OnInit {
         const navbar: HTMLElement = this.element.nativeElement;
         this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
     }
+
+
     sidebarOpen() {
         const toggleButton = this.toggleButton;
         const html = document.getElementsByTagName('html')[0];
-        // console.log(html);
-        // console.log(toggleButton, 'toggle');
 
         setTimeout(function(){
             toggleButton.classList.add('toggled');
@@ -46,8 +47,6 @@ export class NavbarComponent implements OnInit {
         html.classList.remove('nav-open');
     };
     sidebarToggle() {
-        // const toggleButton = this.toggleButton;
-        // const body = document.getElementsByTagName('body')[0];
         if (this.sidebarVisible === false) {
             this.sidebarOpen();
         } else {

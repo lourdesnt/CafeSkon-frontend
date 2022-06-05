@@ -1,5 +1,6 @@
 import { Order } from "../order";
 
+//Modelo Dto para gestión de lista de pedidos
 export class OrderListDto {
     id?: any;
     firstName: string;

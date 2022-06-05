@@ -14,16 +14,6 @@ export class AuthGuard implements CanActivate {
   }
 
   canActivate() {
-    // if (!this.userService.isLogged()) {
-    //   console.log('Not logged in');
-    //   if(this.userService.isAdmin()){
-    //     this.router.navigate(['/dashboard/products']);
-    //     return false;
-    //   }
-    //   this.router.navigate(['/login']);
-    //   return false;
-    // }
-    // return true;
     return this.userService.isLogged()
      .pipe(map((res) => {
         if ( res === true && localStorage.getItem('username')!="admin") {

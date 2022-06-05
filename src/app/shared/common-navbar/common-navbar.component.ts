@@ -11,6 +11,7 @@ export class CommonNavbarComponent implements OnInit {
   loginRouter: string;
 
   constructor(private userService: UserService) {
+    //Si el usuario está loggeado no irá a página de login, sino a la de perfil
     if(userService.isLogged()) {
       this.loginRouter = '/profile';
     } else {

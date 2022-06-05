@@ -22,6 +22,7 @@ export class DashOrdersComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //Método para listar todos los pedidos
   getAllOrders(){
     this.orderService.getAllOrders().subscribe(
       (data) => {
@@ -37,6 +38,7 @@ export class DashOrdersComponent implements OnInit {
       })
   }
 
+  //Método para cerrar sesión
   logout(){
     this.userService.logout();
     this.router.navigate(['/login']);

@@ -16,7 +16,7 @@ export class AboutUsComponent implements OnInit {
   constructor(private map: MapService) { }
 
   ngOnInit(): void {
-    this.map.buildMap();
+    this.map.buildMap(); //Para construir mapa
   }
 
 }

@@ -45,12 +45,11 @@ export class NgbdModalContent {
 })
 export class ProfileComponent implements OnInit {
 
-  actualUser: User;
-  editedUser: User;
-  actualUsername: string;
-  updateFail: boolean;
-  editOk: boolean;
-  emailFormat: boolean;
+  actualUser: User; //Usuario actual
+  editedUser: User; //Usuario modificado
+  actualUsername: string; //Nombre de usuario del usuario actual
+  updateFail: boolean; //Indica si la actualización de los datos del usuario se ha realizado mal
+  editOk: boolean; //Indica si la modificación de los datos del usuario está bien
 
   constructor(private userService: UserService, private modalService: NgbModal, private router: Router) { 
     this.actualUser = new User();
@@ -72,6 +71,7 @@ export class ProfileComponent implements OnInit {
     );
   }
 
+  //Método submit para la actualización de los datos del usuario
   submit(): void {
     console.log(this.editedUser);
     this.userService.update(this.actualUsername, this.editedUser).subscribe(
@@ -87,6 +87,7 @@ export class ProfileComponent implements OnInit {
     )
   }
 
+  //Método para cerrar sesión
   logout(){
     this.userService.logout();
     this.router.navigate(['/login']);

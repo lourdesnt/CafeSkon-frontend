@@ -1,5 +1,6 @@
 import { Review } from "./review";
 
+//Enumerado de categorías de productos
 export enum Category {
     CAKE = 'CAKE',
     COOKIE = 'COOKIE',
@@ -7,6 +8,7 @@ export enum Category {
     COFFEE = 'COFFEE'
 }
 
+//Modelo para productos
 export class Product {
     id: any;
     name: string;

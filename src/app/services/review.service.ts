@@ -5,6 +5,7 @@ import { Review } from 'app/models/review';
 
 const API_URL = 'http://localhost:8090/reviews/';
 
+//Servicio para reviews
 @Injectable({
   providedIn: 'root'
 })
@@ -12,10 +13,12 @@ export class ReviewService {
 
   constructor(private http: HttpClient) { }
 
+  //Listar reviews
   public getAllReviews(productId: any):Observable<any>{
     return this.http.get(API_URL + `${productId}`);
   }
 
+  //Nueva review
   public createReview(productId: any, review: Review):Observable<any>{
     const HTTP_OPTIONS = {
       headers: new HttpHeaders({
@@ -29,7 +32,4 @@ export class ReviewService {
     return this.http.post(API_URL + `${productId}/new`, review, HTTP_OPTIONS);
   }
 
-  public deleteReview(id: any):Observable<any>{
-    return this.http.delete(API_URL + `review/${id}`);
-  }
 }

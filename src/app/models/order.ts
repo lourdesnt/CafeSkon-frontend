@@ -1,10 +1,10 @@
 import { CartItem } from "./cart-item";
 import { User } from "./user";
 
+//Modelo para pedidos
 export class Order {
     id?: any;
     customer: User;
-    //items: CartItem[];
     firstName: string;
     lastName: string;
     address: string;
@@ -14,7 +14,6 @@ export class Order {
     orderDate: Date;
 
     constructor(){
-        //this.items = [];
         this.firstName = '';
         this.lastName = '';
         this.address = '';

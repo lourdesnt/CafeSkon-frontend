@@ -1,5 +1,6 @@
 import { Product } from "./product";
 
+//Modelo para reviews
 export class Review {
     id?: any;
     username: string;

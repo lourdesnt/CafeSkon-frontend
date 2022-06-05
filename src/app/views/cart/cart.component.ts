@@ -10,9 +10,9 @@ import { UserService } from 'app/services/user.service';
 })
 export class CartComponent implements OnInit {
 
-  public items: CartItem[];
-  public finalItems: CartItem[] = [];
-  public total: number;
+  public items: CartItem[]; //Lista de productos del carrito
+  public finalItems: CartItem[] = []; //Lista definitiva de productos del carrito
+  public total: number; //Total del carrito
 
   constructor(private userService: UserService,
               private _route: ActivatedRoute,
@@ -28,6 +28,7 @@ export class CartComponent implements OnInit {
 
   }
 
+  //Método para actualizar lista de productos del carrito
   updateItemsList(){
     this.finalItems = this.items;
     if(this.finalItems != null && this.finalItems.length>0){
@@ -36,16 +37,19 @@ export class CartComponent implements OnInit {
     localStorage.setItem('cart', JSON.stringify(this.finalItems));
   }
 
+  //Método para obtener el total de cada producto
   getItemPrice(item: CartItem): number {
     this.updateItemsList();
     return item.product.price*item.quantity;
   }
 
+  //Método para obtener el total del carrito
   getTotalPrice(): number {
     this.updateItemsList();
     return this.total;
   }
 
+  //Método para eliminar un producto del carrito
   deleteItem(item: CartItem){
     var matchingItem = this.items.find(i => i.product.id == item.product.id);
     this.items.forEach((product,index)=>{

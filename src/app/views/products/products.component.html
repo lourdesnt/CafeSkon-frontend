@@ -14,43 +14,6 @@
     <div class="form-group">
         <input type="search" class="form-control" (keyup)="search($event)" placeholder="Search a product">
     </div>
-    <!--div class="row">
-        <div class="col-sm-12 col-md-6 col-lg-3 p-3">
-            <button type="submit" class="btn btn-outline-danger btn-block" (click)="searchCategory($event, 'CAKE')" style="display: inline-block;">CAKES</button>
-        </div>
-        <div class="col-sm-12 col-md-6 col-lg-3 p-3">
-            <button type="submit" class="btn btn-outline-danger btn-block" (click)="searchCategory($event, 'COOKIE')" style="display: inline-block;">COOKIES</button>
-        </div>
-        <div class="col-sm-12 col-md-6 col-lg-3 p-3">
-            <button type="submit" class="btn btn-outline-danger btn-block" (click)="searchCategory($event, 'DRINK')" style="display: inline-block;">DRINKS</button>
-        </div>
-        <div class="col-sm-12 col-md-6 col-lg-3 p-3">
-            <button type="submit" class="btn btn-outline-danger btn-block" (click)="searchCategory($event, 'COFFEE')" style="display: inline-block;">COFFEES</button>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-12 p-3">
-            <button type="submit" class="btn btn-outline-warning btn-block" (click)="getAllProducts()" style="display: inline-block;">SEE ALL PRODUCTS</button>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-12 col-md-6 col-lg-4 p-3" *ngFor="let product of products; index as i">
-            <a href="" [routerLink]="['/products/product', products[i].id]" routerLink="/products/product/{{products[i].id}}">
-                <div class="card">
-                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                        <img src={{product.image}} class="img-fluid" alt="{{product.name}}"/>
-                        <a href="#!">
-                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                        </a>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title text-center">{{product.name}}</h5>
-                        <p class="card-text text-center">{{product.price | number:'1.2-2'}} $</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div-->
     <div class="nav-tabs-navigation py-3">
         <div class="nav-tabs-wrapper">
             <ngb-tabset [justify]="'center'">
@@ -182,8 +145,5 @@
             </ngb-tabset>
         </div>
     </div>
-    <!--div class="row" *ngIf="products.length > 0">
-        <pagination-controls (pageChange)="page = $event" previousLabel="Previous" nextLabel="Next"></pagination-controls>
-    </div-->
 </div>
-<!--app-footer></-app-footer-->
+<app-footer></app-footer>

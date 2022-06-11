@@ -67,7 +67,7 @@ export class OrderComponent implements OnInit {
   //Método que asocia cada valor de los inputs del formulario con los atributos del pedido
   setOrder(): OrderDto {
     if (!this.currentUser || this.currentUser == null || this.currentUser == '') {
-      this.router.navigate(["/login"]);
+      this.router.navigate(["/login"]); //Si el usuario no está loggeado, se redirige hacia la vista de login
       return;
     } else {
       this.order.customerId = localStorage.getItem("username"); //Se establece el usuario del pedido

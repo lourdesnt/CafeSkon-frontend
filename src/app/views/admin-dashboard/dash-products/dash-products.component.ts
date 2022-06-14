@@ -96,6 +96,8 @@ export class DashProductsComponent implements OnInit {
       this.productService.updateProduct(this.addedProduct.id, this.addedProduct).subscribe(
         (data) => {
           console.log(data);
+          this.addProductForm.reset();
+          this.addProductForm.controls["category"].setValue("CAKE");
           this.getAllProducts();
         },
         (error: Error) => {
@@ -106,6 +108,8 @@ export class DashProductsComponent implements OnInit {
       this.productService.addProduct(this.addedProduct).subscribe(
         (data) => {
           console.log(data);
+          this.addProductForm.reset();
+          this.addProductForm.controls["category"].setValue("CAKE");
           this.getAllProducts();
         },
         (error: Error) => {
